@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zhihu-preserver", "zhihu-preserver.csproj", "{B9DE7FAF-0795-413E-B4F5-24DC4F898022}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9DE7FAF-0795-413E-B4F5-24DC4F898022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DE7FAF-0795-413E-B4F5-24DC4F898022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DE7FAF-0795-413E-B4F5-24DC4F898022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DE7FAF-0795-413E-B4F5-24DC4F898022}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B52D37A-8727-4B9A-93B8-F39A25340DA0}
+	EndGlobalSection
+EndGlobal
