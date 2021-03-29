@@ -123,10 +123,25 @@
   <data name="Document" xml:space="preserve">
     <value>Document</value>
   </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="Help" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="Multiboxing" xml:space="preserve">
+    <value>Multiboxing</value>
+  </data>
+  <data name="NewBrowserWindow" xml:space="preserve">
+    <value>NewBrowserWindow</value>
+  </data>
+  <data name="Program" xml:space="preserve">
+    <value>Program</value>
+  </data>
   <data name="Ready" xml:space="preserve">
     <value>Ready</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+    <value>Task</value>
   </data>
 </root>

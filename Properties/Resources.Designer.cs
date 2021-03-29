@@ -106,6 +106,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 新建浏览器窗口.
+        /// </summary>
+        public static string NewBrowserWindow {
+            get {
+                return ResourceManager.GetString("NewBrowserWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 程序.
         /// </summary>
         public static string Program {
@@ -120,6 +129,15 @@ namespace zhihu_preserver.Properties {
         public static string Ready {
             get {
                 return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 任务.
+        /// </summary>
+        public static string Task {
+            get {
+                return ResourceManager.GetString("Task", resourceCulture);
             }
         }
     }

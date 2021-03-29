@@ -19,6 +19,10 @@
 				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.Exit}"/>
 			</MenuItem>
+            <MenuItem Header="{x:Static p:Resources.Task}">
+                <MenuItem Header="{x:Static p:Resources.NewBrowserWindow}"/>
+                <Separator/>
+            </MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Help}">
 				<MenuItem Header="{x:Static p:Resources.Document}"/>
 				<Separator/>
