@@ -79,11 +79,38 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 退出.
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 帮助.
         /// </summary>
         public static string Help {
             get {
                 return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 多开.
+        /// </summary>
+        public static string Multiboxing {
+            get {
+                return ResourceManager.GetString("Multiboxing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 程序.
+        /// </summary>
+        public static string Program {
+            get {
+                return ResourceManager.GetString("Program", resourceCulture);
             }
         }
         

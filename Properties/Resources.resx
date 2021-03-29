@@ -123,8 +123,17 @@
   <data name="Document" xml:space="preserve">
     <value>文档</value>
   </data>
+  <data name="Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
   <data name="Help" xml:space="preserve">
     <value>帮助</value>
+  </data>
+  <data name="Multiboxing" xml:space="preserve">
+    <value>多开</value>
+  </data>
+  <data name="Program" xml:space="preserve">
+    <value>程序</value>
   </data>
   <data name="Ready" xml:space="preserve">
     <value>就绪</value>
