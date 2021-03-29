@@ -4,6 +4,7 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:zhihu_preserver"
+        xmlns:p="clr-namespace:zhihu_preserver.Properties"
 		mc:Ignorable="d"
 		Title="Console" Height="720" Width="1280">
 	<Grid>
@@ -15,12 +16,12 @@
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 		<Menu Grid.Row="0">
-			<MenuItem Header="帮助">
-                <MenuItem Header="关于"/>
+			<MenuItem Header="{x:Static p:Resources.Help}">
+                <MenuItem Header="{x:Static p:Resources.About}"/>
             </MenuItem>
 		</Menu>
 		<StatusBar Grid.Row="4">
-            <StatusBarItem Content="就绪"/>
+            <StatusBarItem Content="{x:Static p:Resources.Ready}"/>
         </StatusBar>
 	</Grid>
 </Window>

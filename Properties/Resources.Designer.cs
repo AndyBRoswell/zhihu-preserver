@@ -59,5 +59,32 @@ namespace zhihu_preserver.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 关于.
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 帮助.
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 就绪.
+        /// </summary>
+        public static string Ready {
+            get {
+                return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
     }
 }
