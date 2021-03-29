@@ -7,6 +7,20 @@
 		mc:Ignorable="d"
 		Title="Console" Height="720" Width="1280">
 	<Grid>
-
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Menu Grid.Row="0">
+			<MenuItem Header="帮助">
+                <MenuItem Header="关于"/>
+            </MenuItem>
+		</Menu>
+		<StatusBar Grid.Row="4">
+            <StatusBarItem Content="就绪"/>
+        </StatusBar>
 	</Grid>
 </Window>
