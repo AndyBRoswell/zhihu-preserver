@@ -17,6 +17,8 @@
 		</Grid.RowDefinitions>
 		<Menu Grid.Row="0">
 			<MenuItem Header="{x:Static p:Resources.Help}">
+                <MenuItem Header="{x:Static p:Resources.Document}"/>
+                <Separator/>
                 <MenuItem Header="{x:Static p:Resources.About}"/>
             </MenuItem>
 		</Menu>
