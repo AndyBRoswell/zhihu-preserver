@@ -20,7 +20,7 @@
 				<MenuItem Header="{x:Static p:Resources.Exit}"/>
 			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Task}">
-				<MenuItem Header="{x:Static p:Resources.NewBrowserWindow}"/>
+				<MenuItem Header="{x:Static p:Resources.NewBrowserWindow}" Click=""/>
 				<Separator/>
 			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Help}">
