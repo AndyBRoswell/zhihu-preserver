@@ -21,5 +21,8 @@ namespace zhihu_preserver {
 		public MainWindow() {
 			InitializeComponent();
 		}
-	}
+        private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
+
+        }
+    }
 }
