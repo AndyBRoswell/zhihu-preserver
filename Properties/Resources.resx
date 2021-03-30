@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>关于</value>
   </data>
+  <data name="CloseWindow" xml:space="preserve">
+    <value>关闭窗口</value>
+  </data>
   <data name="ControlPanel" xml:space="preserve">
     <value>控制面板</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="NewBrowserWindow" xml:space="preserve">
     <value>新建浏览器窗口</value>
   </data>
+  <data name="NewTab" xml:space="preserve">
+    <value>新标签页</value>
+  </data>
   <data name="OpenWebPages" xml:space="preserve">
     <value>已打开的网页</value>
   </data>
@@ -155,5 +161,8 @@
   </data>
   <data name="TaskQueue" xml:space="preserve">
     <value>任务队列</value>
+  </data>
+  <data name="WebPage" xml:space="preserve">
+    <value>网页</value>
   </data>
 </root>
