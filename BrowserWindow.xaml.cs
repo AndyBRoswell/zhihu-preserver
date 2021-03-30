@@ -12,16 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace zhihu_preserver
-{
-    /// <summary>
-    /// Interaction logic for BrowserWindow.xaml
-    /// </summary>
-    public partial class BrowserWindow : Window
-    {
-        public BrowserWindow()
-        {
-            InitializeComponent();
-        }
-    }
+namespace zhihu_preserver {
+	/// <summary>
+	/// Interaction logic for BrowserWindow.xaml
+	/// </summary>
+	public partial class BrowserWindow : Window {
+		public BrowserWindow() {
+			InitializeComponent();
+		}
+	}
 }
