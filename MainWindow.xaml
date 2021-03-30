@@ -37,6 +37,8 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <GroupBox Header="GroupBox"/>
+
             </Grid>
         </Grid>
 		<StatusBar Grid.Row="2">
