@@ -70,6 +70,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 控制面板.
+        /// </summary>
+        public static string ControlPanel {
+            get {
+                return ResourceManager.GetString("ControlPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 文档.
         /// </summary>
         public static string Document {
@@ -142,11 +151,29 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 状态面板.
+        /// </summary>
+        public static string StatusPanel {
+            get {
+                return ResourceManager.GetString("StatusPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 任务.
         /// </summary>
         public static string Task {
             get {
                 return ResourceManager.GetString("Task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 任务队列.
+        /// </summary>
+        public static string TaskQueue {
+            get {
+                return ResourceManager.GetString("TaskQueue", resourceCulture);
             }
         }
     }

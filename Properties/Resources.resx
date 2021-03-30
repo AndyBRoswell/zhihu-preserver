@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>关于</value>
   </data>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>控制面板</value>
+  </data>
   <data name="Document" xml:space="preserve">
     <value>文档</value>
   </data>
@@ -144,7 +147,13 @@
   <data name="Ready" xml:space="preserve">
     <value>就绪</value>
   </data>
+  <data name="StatusPanel" xml:space="preserve">
+    <value>状态面板</value>
+  </data>
   <data name="Task" xml:space="preserve">
     <value>任务</value>
+  </data>
+  <data name="TaskQueue" xml:space="preserve">
+    <value>任务队列</value>
   </data>
 </root>
