@@ -29,18 +29,18 @@
 				<MenuItem Header="{x:Static p:Resources.About}"/>
 			</MenuItem>
 		</Menu>
-        <Grid Grid.Row="1">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <GroupBox Header="GroupBox"/>
+		<Grid Grid.Row="1">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<GroupBox Header="GroupBox"/>
 
-            </Grid>
-        </Grid>
+			</Grid>
+		</Grid>
 		<StatusBar Grid.Row="2">
 			<StatusBarItem Content="{x:Static p:Resources.Ready}"/>
 		</StatusBar>
