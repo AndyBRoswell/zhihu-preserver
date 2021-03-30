@@ -10,19 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace zhihu_preserver {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window {
-		public MainWindow() {
-			InitializeComponent();
-		}
-        private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
-			
+namespace zhihu_preserver
+{
+    /// <summary>
+    /// Interaction logic for BrowserWindow.xaml
+    /// </summary>
+    public partial class BrowserWindow : Window
+    {
+        public BrowserWindow()
+        {
+            InitializeComponent();
         }
     }
 }
