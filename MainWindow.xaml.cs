@@ -22,7 +22,8 @@ namespace zhihu_preserver {
 			InitializeComponent();
 		}
         private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
-			
+			BrowserWindow browser = new();
+			browser.Show();
         }
     }
 }
