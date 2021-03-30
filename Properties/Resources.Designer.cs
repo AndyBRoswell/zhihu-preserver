@@ -115,6 +115,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 已打开的网页.
+        /// </summary>
+        public static string OpenWebPages {
+            get {
+                return ResourceManager.GetString("OpenWebPages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 程序.
         /// </summary>
         public static string Program {

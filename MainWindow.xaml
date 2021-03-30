@@ -37,7 +37,7 @@
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
-				<GroupBox Header="GroupBox"/>
+				<GroupBox Header="{x:Static p:Resources.OpenWebPages}"/>
 
 			</Grid>
 		</Grid>
