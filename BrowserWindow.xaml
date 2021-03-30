@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="BrowserWindow" Height="720" Width="1280">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
     </Grid>
 </Window>
