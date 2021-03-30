@@ -10,8 +10,8 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 		<Menu Grid.Row="0">
 			<MenuItem Header="{x:Static p:Resources.Program}">
@@ -19,10 +19,10 @@
 				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.Exit}"/>
 			</MenuItem>
-            <MenuItem Header="{x:Static p:Resources.Task}">
-                <MenuItem Header="{x:Static p:Resources.NewBrowserWindow}"/>
-                <Separator/>
-            </MenuItem>
+			<MenuItem Header="{x:Static p:Resources.Task}">
+				<MenuItem Header="{x:Static p:Resources.NewBrowserWindow}"/>
+				<Separator/>
+			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Help}">
 				<MenuItem Header="{x:Static p:Resources.Document}"/>
 				<Separator/>
