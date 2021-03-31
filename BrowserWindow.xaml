@@ -5,6 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:zhihu_preserver"
 		xmlns:p="clr-namespace:zhihu_preserver.Properties"
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
 		mc:Ignorable="d"
 		Title="BrowserWindow" Height="720" Width="1280">
 	<Grid>
@@ -30,8 +31,8 @@
 				<ColumnDefinition Width="*"/>
 			</Grid.ColumnDefinitions>
 		</Grid>
-		
-		<StatusBar Grid.Row="3">
+        <wpf:ChromiumWebBrowser Grid.Row="2" x:Name="Browser" Address="about:blank"/>
+        <StatusBar Grid.Row="3">
 			<StatusBarItem Content="{x:Static p:Resources.Ready}"/>
 		</StatusBar>
 	</Grid>
