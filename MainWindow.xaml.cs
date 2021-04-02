@@ -23,8 +23,6 @@ namespace zhihu_preserver {
 		internal List<IntPtr> Hwnd = new();
 		public MainWindow() {
 			InitializeComponent();
-			StreamReader reader = new StreamReader(Global.AppPath + "\\cfg\\config.cfg");
-			
 		}
 		private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
 			BrowserWindow browser = new();
