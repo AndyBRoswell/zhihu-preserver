@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -18,11 +19,15 @@ namespace zhihu_preserver {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window {
+		internal List<IntPtr> Hwnd = new();
 		public MainWindow() {
 			InitializeComponent();
 		}
 		private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
-
+			BrowserWindow browser = new();
+			browser.Show();
+			var wih = new WindowInteropHelper(browser);
+			Hwnd.Add(wih.Handle);
 		}
 	}
 }
