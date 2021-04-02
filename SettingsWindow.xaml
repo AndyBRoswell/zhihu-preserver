@@ -8,6 +8,23 @@
         mc:Ignorable="d"
         Title="{x:Static p:Resources.Settings}" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="{x:Static p:Resources.Confirm}"/>
+                <Button Grid.Column="1" Content="{x:Static p:Resources.Cancel}"/>
+                <Button Grid.Column="2" Content="{x:Static p:Resources.Apply}"/>
+                <Button Grid.Column="3" Content="{x:Static p:Resources.LoadSettings}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
