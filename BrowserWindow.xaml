@@ -37,7 +37,16 @@
 			<TextBox Grid.Column="4" Text="about:blank"/>
 		</Grid>
 		<TabControl Grid.Row="2" Name="WebPageTabControl" ItemsSource="{Binding}">
-			
+            <TabControl.ItemTemplate>
+                <DataTemplate DataType="local:WebPageTab">
+                    <TextBlock Text="{Binding Header}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate DataType="local:WebPageTab">
+                    <wpf:ChromiumWebBrowser Address="google.com"/>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
 		</TabControl>
 		<StatusBar Grid.Row="3">
 			<StatusBarItem Content="{x:Static p:Resources.Ready}"/>

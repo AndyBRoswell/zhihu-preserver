@@ -19,8 +19,11 @@ namespace zhihu_preserver {
 	/// Interaction logic for BrowserWindow.xaml
 	/// </summary>
 	public partial class BrowserWindow : Window {
+		readonly ObservableCollection<WebPageTab> tab = new();
 		public BrowserWindow() {
 			InitializeComponent();
+			tab.Add(new WebPageTab());
+			DataContext = tab;
 		}
 	}
 	public class WebPageTab {
