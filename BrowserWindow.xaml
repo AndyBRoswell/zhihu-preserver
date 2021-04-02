@@ -44,7 +44,7 @@
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate DataType="local:WebPageTab">
-                    <wpf:ChromiumWebBrowser Address="google.com"/>
+                    <wpf:ChromiumWebBrowser Address="{Binding Address}"/>
                 </DataTemplate>
             </TabControl.ContentTemplate>
 		</TabControl>

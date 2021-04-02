@@ -22,12 +22,16 @@ namespace zhihu_preserver {
 		readonly ObservableCollection<WebPageTab> tab = new();
 		public BrowserWindow() {
 			InitializeComponent();
-			tab.Add(new WebPageTab());
+			tab.Add(new WebPageTab("google.com"));
+			tab.Add(new WebPageTab("google.com"));
 			DataContext = tab;
 		}
 	}
 	public class WebPageTab {
 		public string Header { get; set; }
-		public ObservableCollection<ChromiumWebBrowser> Browser { get; } = new ObservableCollection<ChromiumWebBrowser>();
+		//public ObservableCollection<ChromiumWebBrowser> Browser { get; } = new ObservableCollection<ChromiumWebBrowser>();
+		public string Address { get; set; }
+		public WebPageTab() { Header = Address = "about:blank"; }
+		public WebPageTab(string URL) { Header = Address = URL; }
 	}
 }
