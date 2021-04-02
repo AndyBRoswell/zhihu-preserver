@@ -23,7 +23,8 @@ namespace zhihu_preserver {
 		public BrowserWindow() {
 			InitializeComponent();
 			tab.Add(new WebPageTab("google.com"));
-			tab.Add(new WebPageTab("google.com"));
+			tab.Add(new WebPageTab("bing.com"));
+			tab.Add(new WebPageTab("baidu.com"));
 			DataContext = tab;
 		}
 	}
