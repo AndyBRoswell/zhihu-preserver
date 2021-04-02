@@ -36,9 +36,9 @@
 			<Button Grid.Column="3" Content="🏠"/>
 			<TextBox Grid.Column="4" Text="about:blank"/>
 		</Grid>
-        <TabControl Grid.Row="2" Name="Tab" ItemsSource="{Binding}">
-            
-        </TabControl>
+		<TabControl Grid.Row="2" Name="WebPageTabControl" ItemsSource="{Binding}">
+			
+		</TabControl>
 		<StatusBar Grid.Row="3">
 			<StatusBarItem Content="{x:Static p:Resources.Ready}"/>
 		</StatusBar>
