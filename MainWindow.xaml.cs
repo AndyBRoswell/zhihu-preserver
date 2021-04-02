@@ -34,10 +34,9 @@ namespace zhihu_preserver {
 			WebPageAddress.Items.Add("about:blank");
 			WebPageTitle.Items.Add("about:blank");
 		}
-
-        private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
+		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
 			SettingsWindow window = new();
 			window.Show();
-        }
-    }
+		}
+	}
 }
