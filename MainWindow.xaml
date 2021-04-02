@@ -17,6 +17,8 @@
 			<MenuItem Header="{x:Static p:Resources.Program}">
 				<MenuItem Header="{x:Static p:Resources.Multiboxing}"/>
 				<Separator/>
+                <MenuItem Header="{x:Static p:Resources.Settings}" Click="Menu_Program_Settings_Click"/>
+                <Separator/>
 				<MenuItem Header="{x:Static p:Resources.Exit}"/>
 			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Task}">
@@ -38,11 +40,11 @@
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
 				<GroupBox Header="{x:Static p:Resources.OpenWebPages}" Grid.Row="0">
-                    <Grid>
-                        <ListBox Name="WebPageTitle"/>
-                        <ListBox Name="WebPageAddress"/>
-                    </Grid>
-                </GroupBox>
+					<Grid>
+						<ListBox Name="WebPageTitle"/>
+						<ListBox Name="WebPageAddress"/>
+					</Grid>
+				</GroupBox>
 				<GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1"/>
 				<GroupBox Header="{x:Static p:Resources.ControlPanel}" Grid.Row="2"/>
 				<GroupBox Header="{x:Static p:Resources.StatusPanel}" Grid.Row="3"/>

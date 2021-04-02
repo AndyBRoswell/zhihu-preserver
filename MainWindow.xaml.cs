@@ -28,6 +28,13 @@ namespace zhihu_preserver {
 			browser.Show();
 			var wih = new WindowInteropHelper(browser);
 			Hwnd.Add(wih.Handle);
+			WebPageAddress.Items.Add("about:blank");
+			WebPageTitle.Items.Add("about:blank");
 		}
-	}
+
+        private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
+			SettingsWindow window = new();
+			window.Show();
+        }
+    }
 }

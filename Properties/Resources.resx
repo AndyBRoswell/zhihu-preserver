@@ -153,6 +153,9 @@
   <data name="Ready" xml:space="preserve">
     <value>就绪</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
   <data name="StatusPanel" xml:space="preserve">
     <value>状态面板</value>
   </data>

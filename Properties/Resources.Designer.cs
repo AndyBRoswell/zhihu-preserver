@@ -169,6 +169,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 设置.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 状态面板.
         /// </summary>
         public static string StatusPanel {
