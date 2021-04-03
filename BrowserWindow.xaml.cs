@@ -21,13 +21,21 @@ namespace zhihu_preserver {
 	/// Interaction logic for BrowserWindow.xaml
 	/// </summary>
 	public partial class BrowserWindow : Window {
+		internal ChromiumWebBrowser Browser;
 		public BrowserWindow() {
 			InitializeComponent();
 			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
-			ChromiumWebBrowser Browser = new(HomePageURL);
+			Browser = new(HomePageURL);
 			URLBox.Text = HomePageURL;
 			BrowserWindowGrid.Children.Add(Browser);
 			Grid.SetRow(Browser, 2);
+		}
+		private void URLBox_KeyDown(object sender, KeyEventArgs e) {
+			if (e.Key == Key.Enter) Browser.Load(URLBox.Text);
+		}
+		private void BtnHomePage_Click(object sender, RoutedEventArgs e) {
+			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+			Browser.Load(HomePageURL);
 		}
 	}
 }

@@ -17,8 +17,8 @@
 			<MenuItem Header="{x:Static p:Resources.Program}">
 				<MenuItem Header="{x:Static p:Resources.Multiboxing}"/>
 				<Separator/>
-                <MenuItem Header="{x:Static p:Resources.Settings}" Click="Menu_Program_Settings_Click"/>
-                <Separator/>
+				<MenuItem Header="{x:Static p:Resources.Settings}" Click="Menu_Program_Settings_Click"/>
+				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.Exit}"/>
 			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Task}">
