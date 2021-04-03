@@ -24,7 +24,16 @@ namespace zhihu_preserver {
 		internal ChromiumWebBrowser Browser;
 		public BrowserWindow() {
 			InitializeComponent();
+
+			CefSettings settings = new();
+			// Increase the log severity so CEF outputs detailed information, useful for debugging
+			settings.LogSeverity = LogSeverity.Verbose;
+			// By default CEF uses an in memory cache, to save cached data e.g. to persist cookies you need to specify a cache path
+			// NOTE: The executing user must have sufficient privileges to write to this folder.
+			settings.CachePath = Global.CachePath;
+			Cef.Initialize(settings);
 			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+			
 			Browser = new(HomePageURL);
 			URLBox.Text = HomePageURL;
 			BrowserWindowGrid.Children.Add(Browser);
@@ -36,6 +45,9 @@ namespace zhihu_preserver {
 		private void BtnHomePage_Click(object sender, RoutedEventArgs e) {
 			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
 			Browser.Load(HomePageURL);
+		}
+		private void BtnRefresh_Click(object sender, RoutedEventArgs e) {
+			Browser.Reload();
 		}
 	}
 }

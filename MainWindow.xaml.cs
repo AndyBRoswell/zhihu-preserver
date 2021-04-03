@@ -23,7 +23,7 @@ namespace zhihu_preserver {
 		internal List<IntPtr> Hwnd = new();
 		public MainWindow() {
 			InitializeComponent();
-			SettingsWindow.LoadSettings(Global.AppPath + @"\cfg\config.xml");
+			SettingsWindow.LoadSettings(Global.CfgPath + @"\config.xml");
 		}
 		private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
 			BrowserWindow browser = new();

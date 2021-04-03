@@ -32,7 +32,7 @@
 			</Grid.ColumnDefinitions>
 			<Button Grid.Column="0" Content="←"/>
 			<Button Grid.Column="1" Content="→"/>
-			<Button Grid.Column="2" Content="🔄"/>
+			<Button Name="BtnRefresh" Grid.Column="2" Content="🔄" Click="BtnRefresh_Click"/>
 			<Button Name="BtnHomePage" Grid.Column="3" Content="🏠" Click="BtnHomePage_Click"/>
 			<TextBox Name="URLBox" Grid.Column="4" Text="about:blank" KeyDown="URLBox_KeyDown"/>
 		</Grid>
