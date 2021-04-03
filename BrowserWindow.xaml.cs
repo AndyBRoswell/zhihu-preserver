@@ -46,14 +46,22 @@ namespace zhihu_preserver {
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;
+			Browser.FrameLoadStart += Browser_FrameLoadStart;
+			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
+		}
+		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
+			
 		}
 
-        private void Browser_AddressChanged(object sender, DependencyPropertyChangedEventArgs e) {
-			//throw new NotImplementedException();
-			URLBox.Text = Browser.Address;
-        }
+		private void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e) {
 
-        private void URLBox_KeyDown(object sender, KeyEventArgs e) {
+		}
+
+		private void Browser_AddressChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			URLBox.Text = Browser.Address;
+		}
+
+		private void URLBox_KeyDown(object sender, KeyEventArgs e) {
 			if (e.Key == Key.Enter) Browser.Load(URLBox.Text);
 		}
 
