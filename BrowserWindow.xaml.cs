@@ -25,6 +25,7 @@ namespace zhihu_preserver {
 		public BrowserWindow() {
 			InitializeComponent();
 
+			// Load settings
 			CefSharpSettings.ShutdownOnExit = true;
 			Cef.EnableHighDPISupport();
 
@@ -36,7 +37,10 @@ namespace zhihu_preserver {
 			settings.CachePath = Global.CachePath;
 			Cef.Initialize(settings);
 			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+
+			// Event handlers
 			
+			// Show browser
 			Browser = new(HomePageURL);
 			URLBox.Text = HomePageURL;
 			BrowserWindowGrid.Children.Add(Browser);
