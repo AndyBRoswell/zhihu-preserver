@@ -22,7 +22,7 @@ namespace zhihu_preserver {
 			InitializeComponent();
 		}
 		public static void LoadSettings(string ymlFile) {
-
+			
 		}
 		public static void SaveSettings(string ymlFile) {
 
