@@ -25,6 +25,7 @@ namespace zhihu_preserver {
 			InitializeComponent();
 			SettingsWindow.LoadSettings(Global.CfgPath + @"\config.xml");
 		}
+
 		private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
 			BrowserWindow browser = new();
 			browser.Show();
@@ -33,6 +34,7 @@ namespace zhihu_preserver {
 			WebPageAddress.Items.Add("about:blank");
 			WebPageTitle.Items.Add("about:blank");
 		}
+
 		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
 			SettingsWindow window = new();
 			window.Show();

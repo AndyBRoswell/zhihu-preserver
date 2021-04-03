@@ -22,10 +22,12 @@ namespace zhihu_preserver {
 		public SettingsWindow() {
 			InitializeComponent();
 		}
+
 		public static void LoadSettings(string xmlFile) {
 			Global.CfgDoc.Load(xmlFile);
 			Global.CfgRoot = Global.CfgDoc.DocumentElement;
 		}
+
 		public static void SaveSettings(string xmlFile) {
 			
 		}

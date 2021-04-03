@@ -46,13 +46,16 @@ namespace zhihu_preserver {
 			BrowserWindowGrid.Children.Add(Browser);
 			Grid.SetRow(Browser, 2);
 		}
+
 		private void URLBox_KeyDown(object sender, KeyEventArgs e) {
 			if (e.Key == Key.Enter) Browser.Load(URLBox.Text);
 		}
+
 		private void BtnHomePage_Click(object sender, RoutedEventArgs e) {
 			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
 			Browser.Load(HomePageURL);
 		}
+
 		private void BtnRefresh_Click(object sender, RoutedEventArgs e) {
 			Browser.Reload();
 		}
