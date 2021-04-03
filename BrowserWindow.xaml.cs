@@ -2,7 +2,6 @@
 using CefSharp.Wpf;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -91,20 +90,20 @@ namespace zhihu_preserver {
 				case false:
 					ContinueToPressEnd = true;
 					PageTurner.Content = "⏸️";
+					int delay = int.Parse(Global.CfgRoot.SelectSingleNode("/Settings/Browsing/KeyPressDelay").InnerText);
+					Task.Run(() => {
+						while (ContinueToPressEnd == true) {
+							Browser.GetBrowser().GetHost().SendKeyEvent(KeyDownEnd);
+							Browser.GetBrowser().GetHost().SendKeyEvent(KeyUpEnd);
+							Thread.Sleep(delay);
+						}
+					});
 					break;
 				case true:
 					ContinueToPressEnd = false;
 					PageTurner.Content = "⏬";
 					break;
 			}
-			int delay = int.Parse(Global.CfgRoot.SelectSingleNode("/Settings/Browsing/KeyPressDelay").InnerText);
-			Task.Run(() => {
-				while (ContinueToPressEnd == true) {
-					Browser.GetBrowser().GetHost().SendKeyEvent(KeyDownEnd);
-					Browser.GetBrowser().GetHost().SendKeyEvent(KeyUpEnd);
-					Thread.Sleep(delay);
-				}
-			});
 		}
 	}
 }
