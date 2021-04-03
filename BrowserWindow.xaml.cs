@@ -22,6 +22,7 @@ namespace zhihu_preserver {
 	/// </summary>
 	public partial class BrowserWindow : Window {
 		internal ChromiumWebBrowser Browser;
+
 		string HomePageURL;
 
 		internal bool ContinueToPressEnd = false;
