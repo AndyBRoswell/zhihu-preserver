@@ -34,7 +34,7 @@
 			<Button Grid.Column="1" Content="→"/>
 			<Button Grid.Column="2" Content="🔄"/>
 			<Button Grid.Column="3" Content="🏠"/>
-			<TextBox Grid.Column="4" Text="about:blank"/>
+			<TextBox Name="URLBox" Grid.Column="4" Text="about:blank"/>
 		</Grid>
         <!--wpf:ChromiumWebBrowser will be inserted here. See BrowserWindow.xaml.cs-->
 		<StatusBar Grid.Row="3">

@@ -25,6 +25,7 @@ namespace zhihu_preserver {
 			InitializeComponent();
 			XmlNode HomePageNode = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage");
 			ChromiumWebBrowser Browser = new(HomePageNode.FirstChild.Value);
+			URLBox.Text = HomePageNode.FirstChild.Value;
 			BrowserWindowGrid.Children.Add(Browser);
 			Grid.SetRow(Browser, 2);
 		}
