@@ -214,6 +214,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 设置项.
+        /// </summary>
+        public static string SettingsItem {
+            get {
+                return ResourceManager.GetString("SettingsItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 状态面板.
         /// </summary>
         public static string StatusPanel {
@@ -237,6 +246,15 @@ namespace zhihu_preserver.Properties {
         public static string TaskQueue {
             get {
                 return ResourceManager.GetString("TaskQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 值.
+        /// </summary>
+        public static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
             }
         }
         

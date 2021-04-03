@@ -11,20 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using YamlDotNet.Serialization;
 
 namespace zhihu_preserver {
-    /// <summary>
-    /// Interaction logic for Settings.xaml
-    /// </summary>
-    public partial class SettingsWindow : Window {
-        public SettingsWindow() {
-            InitializeComponent();
-        }
-        public static void LoadSettings(string ymlFile) {
+	/// <summary>
+	/// Interaction logic for Settings.xaml
+	/// </summary>
+	public partial class SettingsWindow : Window {
+		public SettingsWindow() {
+			InitializeComponent();
+		}
+		public static void LoadSettings(string ymlFile) {
 
-        }
-        public static void SaveSettings(string ymlFile) {
+		}
+		public static void SaveSettings(string ymlFile) {
 
-        }
-    }
+		}
+	}
 }

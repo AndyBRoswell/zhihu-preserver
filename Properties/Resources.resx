@@ -168,6 +168,9 @@
   <data name="Settings" xml:space="preserve">
     <value>设置</value>
   </data>
+  <data name="SettingsItem" xml:space="preserve">
+    <value>设置项</value>
+  </data>
   <data name="StatusPanel" xml:space="preserve">
     <value>状态面板</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="TaskQueue" xml:space="preserve">
     <value>任务队列</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>值</value>
   </data>
   <data name="WebPage" xml:space="preserve">
     <value>网页</value>
