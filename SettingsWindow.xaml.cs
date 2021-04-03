@@ -18,7 +18,7 @@ namespace zhihu_preserver {
 	/// Interaction logic for Settings.xaml
 	/// </summary>
 	public partial class SettingsWindow : Window {
-		internal TreeViewItem SettingsItem = new();
+		static internal TreeViewItem SettingsItem = new();
 		public SettingsWindow() {
 			InitializeComponent();
 		}
