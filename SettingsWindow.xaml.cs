@@ -12,19 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using YamlDotNet.Serialization;
+using System.Xml;
 
 namespace zhihu_preserver {
 	/// <summary>
 	/// Interaction logic for Settings.xaml
 	/// </summary>
 	public partial class SettingsWindow : Window {
-		internal TreeViewItem CfgTreeRoot = new();
+		internal readonly TreeViewItem CfgTreeRoot = new();
+		internal readonly XmlDocument CfgDoc = new();
 		public SettingsWindow() {
 			InitializeComponent();
-			CfgTreeRoot.Header = "Layer 0";
-			CfgTreeRoot.Items.Add(new TreeViewItem() { Header = "Layer 1" });
-			Settings.Items.Add(CfgTreeRoot);
+			CfgDoc.Load(Global.AppPath + @"\cfg\config.xml");
 		}
 		public static void LoadSettings(string ymlFile) {
 			
