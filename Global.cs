@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace zhihu_preserver {
-    static class Global {
-        public static readonly string AppPath = Directory.GetCurrentDirectory();
-        public static readonly Dictionary<string, string> config = new();
-    }
+	static class Global {
+		public static readonly string AppPath = Directory.GetCurrentDirectory();
+		public static readonly Dictionary<string, Dictionary<string, string>> config = new();
+	}
 }
