@@ -25,14 +25,14 @@ namespace zhihu_preserver {
 		internal ChromiumWebBrowser Browser;
 		string HomePageURL;
 
-		internal bool IsPressingEnd = false;
-		internal KeyEvent KeyDownEnd = new() {
+		internal bool ContinueToPressEnd = false;
+		internal readonly KeyEvent KeyDownEnd = new() {
 			FocusOnEditableField = false,
 			IsSystemKey = false,
 			Type = KeyEventType.KeyDown,
 			WindowsKeyCode = (int)Key.End
 		};
-		internal KeyEvent KeyUpEnd = new() {
+		internal readonly KeyEvent KeyUpEnd = new() {
 			FocusOnEditableField = false,
 			IsSystemKey = false,
 			Type = KeyEventType.KeyUp,
@@ -87,19 +87,19 @@ namespace zhihu_preserver {
 		}
 
 		private void PageTurner_Click(object sender, RoutedEventArgs e) {
-			switch (IsPressingEnd) {
+			switch (ContinueToPressEnd) {
 				case false:
-					IsPressingEnd = true;
+					ContinueToPressEnd = true;
 					PageTurner.Content = "⏸️";
 					break;
 				case true:
-					IsPressingEnd = false;
+					ContinueToPressEnd = false;
 					PageTurner.Content = "⏬";
 					break;
 			}
 			int delay = int.Parse(Global.CfgRoot.SelectSingleNode("/Settings/Browsing/KeyPressDelay").InnerText);
 			Task.Run(() => {
-				while (IsPressingEnd == true) {
+				while (ContinueToPressEnd == true) {
 					Browser.GetBrowser().GetHost().SendKeyEvent(KeyDownEnd);
 					Browser.GetBrowser().GetHost().SendKeyEvent(KeyUpEnd);
 					Thread.Sleep(delay);
