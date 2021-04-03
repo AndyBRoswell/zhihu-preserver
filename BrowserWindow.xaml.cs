@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,21 +23,26 @@ namespace zhihu_preserver {
 	/// </summary>
 	public partial class BrowserWindow : Window {
 		internal ChromiumWebBrowser Browser;
+		string HomePageURL;
+
+		internal bool IsPressingEnd = false;
+		internal KeyEvent KeyDownEnd = new() {
+			FocusOnEditableField = false,
+			IsSystemKey = false,
+			Type = KeyEventType.KeyDown,
+			WindowsKeyCode = (int)Key.End
+		};
+		internal KeyEvent KeyUpEnd = new() {
+			FocusOnEditableField = false,
+			IsSystemKey = false,
+			Type = KeyEventType.KeyUp,
+			WindowsKeyCode = (int)Key.End
+		};
+
 		public BrowserWindow() {
 			InitializeComponent();
 
-			// Load settings
-			CefSharpSettings.ShutdownOnExit = true;
-			Cef.EnableHighDPISupport();
-
-			CefSettings settings = new();
-			// Increase the log severity so CEF outputs detailed information, useful for debugging
-			settings.LogSeverity = LogSeverity.Verbose;
-			// By default CEF uses an in memory cache, to save cached data e.g. to persist cookies you need to specify a cache path
-			// NOTE: The executing user must have sufficient privileges to write to this folder.
-			settings.CachePath = Global.CachePath;
-			Cef.Initialize(settings);
-			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
 
 			// Show browser
 			Browser = new(HomePageURL);
@@ -49,6 +55,7 @@ namespace zhihu_preserver {
 			Browser.FrameLoadStart += Browser_FrameLoadStart;
 			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
 		}
+
 		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
 			//BrowserStatusBar.Content = Properties.Resources.Loading;
 			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
@@ -71,12 +78,33 @@ namespace zhihu_preserver {
 		}
 
 		private void BtnHomePage_Click(object sender, RoutedEventArgs e) {
-			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
 			Browser.Load(HomePageURL);
 		}
 
 		private void BtnRefresh_Click(object sender, RoutedEventArgs e) {
 			Browser.Reload();
+		}
+
+		private void PageTurner_Click(object sender, RoutedEventArgs e) {
+			switch (IsPressingEnd) {
+				case false:
+					IsPressingEnd = true;
+					PageTurner.Content = "⏸️";
+					break;
+				case true:
+					IsPressingEnd = false;
+					PageTurner.Content = "⏬";
+					break;
+			}
+			int delay = int.Parse(Global.CfgRoot.SelectSingleNode("/Settings/Browsing/KeyPressDelay").InnerText);
+			Task.Run(() => {
+				while (IsPressingEnd == true) {
+					Browser.GetBrowser().GetHost().SendKeyEvent(KeyDownEnd);
+					Browser.GetBrowser().GetHost().SendKeyEvent(KeyUpEnd);
+					Thread.Sleep(delay);
+				}
+			});
 		}
 	}
 }

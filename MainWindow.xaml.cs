@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CefSharp;
+using CefSharp.Wpf;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,7 +25,20 @@ namespace zhihu_preserver {
 		internal List<IntPtr> Hwnd = new();
 		public MainWindow() {
 			InitializeComponent();
+
 			SettingsWindow.LoadSettings(Global.CfgPath + @"\config.xml");
+
+			// Load settings
+			CefSharpSettings.ShutdownOnExit = true;
+			Cef.EnableHighDPISupport();
+
+			CefSettings settings = new();
+			// Increase the log severity so CEF outputs detailed information, useful for debugging
+			settings.LogSeverity = LogSeverity.Verbose;
+			// By default CEF uses an in memory cache, to save cached data e.g. to persist cookies you need to specify a cache path
+			// NOTE: The executing user must have sufficient privileges to write to this folder.
+			settings.CachePath = Global.CachePath;
+			Cef.Initialize(settings);
 		}
 
 		private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
