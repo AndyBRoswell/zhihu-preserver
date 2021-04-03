@@ -17,10 +17,10 @@
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="3*"/>
 			</Grid.ColumnDefinitions>
-			<TreeView Grid.Column="0">
+			<TreeView Name="Settings" Grid.Column="0">
 				<TreeView.ItemTemplate>
-					<HierarchicalDataTemplate DataType="{x:Type local:SettingsItem}" ItemsSource="{Binding Item}">
-						<TextBlock Text="{Binding Title}"/>
+					<HierarchicalDataTemplate DataType="{x:Type TreeViewItem}" ItemsSource="{Binding Items}">
+						<TextBlock Text="{Binding Header}"/>
 					</HierarchicalDataTemplate>
 				</TreeView.ItemTemplate>
 			</TreeView>

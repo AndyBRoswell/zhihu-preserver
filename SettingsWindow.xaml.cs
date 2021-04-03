@@ -19,19 +19,18 @@ namespace zhihu_preserver {
 	/// Interaction logic for Settings.xaml
 	/// </summary>
 	public partial class SettingsWindow : Window {
-		internal SettingsItem ConfigItem = new();
+		internal TreeViewItem ConfigRoot = new();
 		public SettingsWindow() {
 			InitializeComponent();
+			ConfigRoot.Header = "Layer 0";
+			ConfigRoot.Items.Add(new TreeViewItem() { Header = "Layer 1" });
+			Settings.Items.Add(ConfigRoot);
 		}
 		public static void LoadSettings(string ymlFile) {
 			
 		}
 		public static void SaveSettings(string ymlFile) {
-
+			
 		}
-	}
-	internal class SettingsItem {
-		public string Title { get; set; }
-		public ObservableCollection<SettingsItem> Item { get; set; }
 	}
 }
