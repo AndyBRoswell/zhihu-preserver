@@ -25,6 +25,9 @@ namespace zhihu_preserver {
 		public BrowserWindow() {
 			InitializeComponent();
 
+			CefSharpSettings.ShutdownOnExit = true;
+			Cef.EnableHighDPISupport();
+
 			CefSettings settings = new();
 			// Increase the log severity so CEF outputs detailed information, useful for debugging
 			settings.LogSeverity = LogSeverity.Verbose;
