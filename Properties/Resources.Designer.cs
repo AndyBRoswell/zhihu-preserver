@@ -169,6 +169,24 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 加载完毕.
+        /// </summary>
+        public static string LoadComplete {
+            get {
+                return ResourceManager.GetString("LoadComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 加载中………….
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 加载指定设置.
         /// </summary>
         public static string LoadSettings {

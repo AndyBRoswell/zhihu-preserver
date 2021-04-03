@@ -50,11 +50,16 @@ namespace zhihu_preserver {
 			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
 		}
 		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
-			
+			//BrowserStatusBar.Content = Properties.Resources.Loading;
+			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
+				BrowserStatusBar.Content = Properties.Resources.Loading;
+			}));
 		}
 
 		private void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e) {
-
+			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
+				BrowserStatusBar.Content = Properties.Resources.LoadComplete;
+			}));
 		}
 
 		private void Browser_AddressChanged(object sender, DependencyPropertyChangedEventArgs e) {

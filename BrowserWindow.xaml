@@ -37,8 +37,8 @@
 			<TextBox Name="URLBox" Grid.Column="4" Text="about:blank" KeyDown="URLBox_KeyDown"/>
 		</Grid>
 		<!--wpf:ChromiumWebBrowser will be inserted here. See BrowserWindow.xaml.cs-->
-		<StatusBar Name="BrowserStatusBar" Grid.Row="3">
-			<StatusBarItem Content="{x:Static p:Resources.Ready}"/>
+		<StatusBar Grid.Row="3">
+			<StatusBarItem Name="BrowserStatusBar"/>
 		</StatusBar>
 	</Grid>
 </Window>
