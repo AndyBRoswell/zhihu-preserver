@@ -1,4 +1,5 @@
-﻿using CefSharp.Wpf;
+﻿using CefSharp;
+using CefSharp.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace zhihu_preserver {
 	/// <summary>
@@ -21,6 +23,10 @@ namespace zhihu_preserver {
 	public partial class BrowserWindow : Window {
 		public BrowserWindow() {
 			InitializeComponent();
+			XmlNode HomePageNode = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage");
+			ChromiumWebBrowser Browser = new(HomePageNode.Value);
+			BrowserWindowGrid.Children.Add(Browser);
+			Grid.SetRow(Browser, 2);
 		}
 	}
 }

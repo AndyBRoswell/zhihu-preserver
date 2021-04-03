@@ -8,7 +8,7 @@
 		xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
 		mc:Ignorable="d"
 		Title="BrowserWindow" Height="720" Width="1280">
-	<Grid>
+	<Grid Name="BrowserWindowGrid">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="20"/>
@@ -36,7 +36,6 @@
 			<Button Grid.Column="3" Content="🏠"/>
 			<TextBox Grid.Column="4" Text="about:blank"/>
 		</Grid>
-		<wpf:ChromiumWebBrowser Grid.Row="2"/>
 		<StatusBar Grid.Row="3">
 			<StatusBarItem Content="{x:Static p:Resources.Ready}"/>
 		</StatusBar>

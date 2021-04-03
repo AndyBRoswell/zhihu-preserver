@@ -19,14 +19,12 @@ namespace zhihu_preserver {
 	/// Interaction logic for Settings.xaml
 	/// </summary>
 	public partial class SettingsWindow : Window {
-		internal readonly TreeViewItem CfgTreeRoot = new();
-		internal readonly XmlDocument CfgDoc = new();
 		public SettingsWindow() {
 			InitializeComponent();
-			CfgDoc.Load(Global.AppPath + @"\cfg\config.xml");
 		}
 		public static void LoadSettings(string ymlFile) {
-			
+			Global.CfgDoc.Load(Global.AppPath + @"\cfg\config.xml");
+			Global.CfgRoot = Global.CfgDoc.DocumentElement;
 		}
 		public static void SaveSettings(string ymlFile) {
 			
