@@ -19,8 +19,10 @@
 			</Grid.ColumnDefinitions>
 			<TreeView Grid.Column="0"/>
 			<DataGrid Grid.Column="1">
-                <DataGridTextColumn Header="{x:Static p:Resources.SettingsItem}"/>
-                <DataGridTextColumn Header="{x:Static p:Resources.Value}"/>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static p:Resources.SettingsItem}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.Value}"/>
+                </DataGrid.Columns>
             </DataGrid>
 		</Grid>
 		<Grid Grid.Row="1">
