@@ -17,7 +17,13 @@
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="3*"/>
 			</Grid.ColumnDefinitions>
-			<TreeView Grid.Column="0"/>
+            <TreeView Grid.Column="0">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding local:SettingsItem}">
+                        <TextBlock Text=""/>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
 			<DataGrid Grid.Column="1">
 				<DataGrid.Columns>
 					<DataGridTextColumn Header="{x:Static p:Resources.SettingsItem}" Width="1*"/>
