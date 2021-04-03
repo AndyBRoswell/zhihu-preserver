@@ -20,8 +20,8 @@
 			<TreeView Grid.Column="0"/>
 			<DataGrid Grid.Column="1">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static p:Resources.SettingsItem}"/>
-                    <DataGridTextColumn Header="{x:Static p:Resources.Value}"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.SettingsItem}" Width="*"/>
+                    <DataGridTextColumn Header="{x:Static p:Resources.Value}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 		</Grid>
