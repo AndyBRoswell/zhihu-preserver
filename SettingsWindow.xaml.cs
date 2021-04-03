@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace zhihu_preserver {
 	/// Interaction logic for Settings.xaml
 	/// </summary>
 	public partial class SettingsWindow : Window {
-		static internal TreeViewItem SettingsItem = new();
+		internal SettingsItem ConfigItem = new();
 		public SettingsWindow() {
 			InitializeComponent();
 		}
@@ -28,5 +29,9 @@ namespace zhihu_preserver {
 		public static void SaveSettings(string ymlFile) {
 
 		}
+	}
+	internal class SettingsItem {
+		public string Title { get; set; }
+		public ObservableCollection<SettingsItem> Item { get; set; }
 	}
 }
