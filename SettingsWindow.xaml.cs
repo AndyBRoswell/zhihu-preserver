@@ -20,5 +20,11 @@ namespace zhihu_preserver {
         public SettingsWindow() {
             InitializeComponent();
         }
+        public static void LoadSettings(string ymlFile) {
+
+        }
+        public static void SaveSettings(string ymlFile) {
+
+        }
     }
 }
