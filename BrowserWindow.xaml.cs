@@ -38,16 +38,22 @@ namespace zhihu_preserver {
 			Cef.Initialize(settings);
 			string HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
 
-			// Event handlers
-			
 			// Show browser
 			Browser = new(HomePageURL);
 			URLBox.Text = HomePageURL;
 			BrowserWindowGrid.Children.Add(Browser);
 			Grid.SetRow(Browser, 2);
+
+			// Event handlers
+			Browser.AddressChanged += Browser_AddressChanged;
 		}
 
-		private void URLBox_KeyDown(object sender, KeyEventArgs e) {
+        private void Browser_AddressChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			//throw new NotImplementedException();
+			URLBox.Text = Browser.Address;
+        }
+
+        private void URLBox_KeyDown(object sender, KeyEventArgs e) {
 			if (e.Key == Key.Enter) Browser.Load(URLBox.Text);
 		}
 
