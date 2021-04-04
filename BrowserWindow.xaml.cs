@@ -95,7 +95,7 @@ namespace zhihu_preserver {
 			}
 		}
 
-        private void BrowserForm_Loaded(object sender, RoutedEventArgs e) {
+		private void BrowserForm_Loaded(object sender, RoutedEventArgs e) {
 			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
 			Browser.Address = HomePageURL;
 
@@ -104,5 +104,5 @@ namespace zhihu_preserver {
 			Browser.FrameLoadStart += Browser_FrameLoadStart;
 			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
 		}
-    }
+	}
 }
