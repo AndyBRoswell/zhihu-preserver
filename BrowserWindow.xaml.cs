@@ -94,7 +94,7 @@ namespace zhihu_preserver {
 
 		private void BrowserForm_Loaded(object sender, RoutedEventArgs e) {
 			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
-			Browser.Address = HomePageURL;
+			Browser.Address = URLBox.Text = HomePageURL;
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;
