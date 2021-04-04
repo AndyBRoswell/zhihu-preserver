@@ -27,20 +27,20 @@ namespace zhihu_preserver {
 		string HomePageURL;
 
 		internal bool ContinueToPressEnd = false;
-        internal readonly KeyEvent KeyDownEnd = new() {
-            FocusOnEditableField = false,
-            IsSystemKey = false,
-            Type = KeyEventType.KeyDown,
-            WindowsKeyCode = (int)Key.End
-        };
-        internal readonly KeyEvent KeyUpEnd = new() {
-            FocusOnEditableField = false,
-            IsSystemKey = false,
-            Type = KeyEventType.KeyUp,
-            WindowsKeyCode = (int)Key.End
-        };
+		internal readonly KeyEvent KeyDownEnd = new() {
+			FocusOnEditableField = false,
+			IsSystemKey = false,
+			Type = KeyEventType.KeyDown,
+			WindowsKeyCode = (int)Key.End
+		};
+		internal readonly KeyEvent KeyUpEnd = new() {
+			FocusOnEditableField = false,
+			IsSystemKey = false,
+			Type = KeyEventType.KeyUp,
+			WindowsKeyCode = (int)Key.End
+		};
 
-        public BrowserWindow() {
+		public BrowserWindow() {
 			InitializeComponent();
 
 			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
