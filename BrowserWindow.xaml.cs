@@ -22,8 +22,6 @@ namespace zhihu_preserver {
 	/// Interaction logic for BrowserWindow.xaml
 	/// </summary>
 	public partial class BrowserWindow : Window {
-		//internal ChromiumWebBrowser Browser;
-
 		string HomePageURL;
 
 		internal bool ContinueToPressEnd = false;
