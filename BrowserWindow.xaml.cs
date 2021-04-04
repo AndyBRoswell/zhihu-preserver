@@ -36,7 +36,7 @@ namespace zhihu_preserver {
         internal readonly KeyEvent KeyUpEnd = new() {
             FocusOnEditableField = false,
             IsSystemKey = false,
-            Type = KeyEventType.KeyDown,
+            Type = KeyEventType.KeyUp,
             WindowsKeyCode = (int)Key.End
         };
 
