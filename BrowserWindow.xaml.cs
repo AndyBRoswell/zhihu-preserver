@@ -3,7 +3,6 @@ using CefSharp.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,13 +28,13 @@ namespace zhihu_preserver {
 			FocusOnEditableField = false,
 			IsSystemKey = false,
 			Type = KeyEventType.KeyDown,
-			WindowsKeyCode = (int)Key.End
+			WindowsKeyCode = 35
 		};
 		internal readonly KeyEvent KeyUpEnd = new() {
 			FocusOnEditableField = false,
 			IsSystemKey = false,
 			Type = KeyEventType.KeyUp,
-			WindowsKeyCode = (int)Key.End
+			WindowsKeyCode = 35
 		};
 
 		public BrowserWindow() {
@@ -79,8 +78,8 @@ namespace zhihu_preserver {
 					int delay = int.Parse(Global.CfgRoot.SelectSingleNode("/Settings/Browsing/KeyPressDelay").InnerText);
 					Task.Run(() => {
 						while (ContinueToPressEnd == true) {
-							Browser.GetBrowser().GetHost().SendKeyEvent(KeyDownEnd);
-							Browser.GetBrowser().GetHost().SendKeyEvent(KeyUpEnd);
+							Browser.GetBrowserHost().SendKeyEvent(KeyDownEnd);
+							Browser.GetBrowserHost().SendKeyEvent(KeyUpEnd);
 							Thread.Sleep(delay);
 						}
 					});
