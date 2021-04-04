@@ -22,7 +22,7 @@ namespace zhihu_preserver {
 	/// Interaction logic for BrowserWindow.xaml
 	/// </summary>
 	public partial class BrowserWindow : Window {
-		internal ChromiumWebBrowser Browser;
+		//internal ChromiumWebBrowser Browser;
 
 		string HomePageURL;
 
@@ -42,19 +42,6 @@ namespace zhihu_preserver {
 
 		public BrowserWindow() {
 			InitializeComponent();
-
-			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
-
-			// Show browser
-			Browser = new(HomePageURL);
-			URLBox.Text = HomePageURL;
-			BrowserWindowGrid.Children.Add(Browser);
-			Grid.SetRow(Browser, 2);
-
-			// Event handlers
-			Browser.AddressChanged += Browser_AddressChanged;
-			Browser.FrameLoadStart += Browser_FrameLoadStart;
-			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
 		}
 
 		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
@@ -107,5 +94,15 @@ namespace zhihu_preserver {
 					break;
 			}
 		}
-	}
+
+        private void BrowserForm_Loaded(object sender, RoutedEventArgs e) {
+			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+			Browser.Address = HomePageURL;
+
+			// Event handlers
+			Browser.AddressChanged += Browser_AddressChanged;
+			Browser.FrameLoadStart += Browser_FrameLoadStart;
+			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
+		}
+    }
 }
