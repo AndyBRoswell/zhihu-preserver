@@ -43,7 +43,6 @@ namespace zhihu_preserver {
 		}
 
 		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
-			//BrowserStatusBar.Content = Properties.Resources.Loading;
 			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
 				BrowserStatusBar.Content = Properties.Resources.Loading;
 			}));
