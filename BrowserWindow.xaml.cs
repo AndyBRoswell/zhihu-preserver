@@ -21,6 +21,7 @@ namespace zhihu_preserver {
 	/// Interaction logic for BrowserWindow.xaml
 	/// </summary>
 	public partial class BrowserWindow : Window {
+		string InitialURL;
 		string HomePageURL;
 
 		internal bool ContinueToPressEnd = false;
@@ -39,6 +40,16 @@ namespace zhihu_preserver {
 
 		public BrowserWindow() {
 			InitializeComponent();
+		}
+
+		public BrowserWindow(string URL) {
+			InitializeComponent();
+			InitialURL = URL;
+        }
+
+		public void LoadHomePage() {
+			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+			Browser.Load(HomePageURL);
 		}
 
 		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
@@ -62,8 +73,7 @@ namespace zhihu_preserver {
 		}
 
 		private void BtnHomePage_Click(object sender, RoutedEventArgs e) {
-			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
-			Browser.Load(HomePageURL);
+			LoadHomePage();
 		}
 
 		private void BtnRefresh_Click(object sender, RoutedEventArgs e) {
@@ -92,8 +102,9 @@ namespace zhihu_preserver {
 		}
 
 		private void BrowserForm_Loaded(object sender, RoutedEventArgs e) {
-			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
-			Browser.Address = URLBox.Text = HomePageURL;
+			if (InitialURL == null) LoadHomePage();
+			else Browser.Load(InitialURL);
+			URLBox.Text = InitialURL;
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;

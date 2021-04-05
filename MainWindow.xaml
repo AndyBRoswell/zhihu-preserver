@@ -42,8 +42,8 @@
 				</Grid.RowDefinitions>
 				<GroupBox Header="{x:Static p:Resources.OpenWebPages}" Grid.Row="0">
 					<Grid>
-						<ListBox Name="WebPageTitle"/>
-						<ListBox Name="WebPageAddress"/>
+						<ListBox Name="WebPageTitle" Grid.Row="0"/>
+						<ListBox Name="WebPageAddress" Grid.Row="1"/>
 					</Grid>
 				</GroupBox>
 				<GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1"/>
