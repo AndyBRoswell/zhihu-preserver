@@ -2,6 +2,7 @@
 using CefSharp.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,15 @@ namespace zhihu_preserver {
 			InitializeComponent();
 		}
 
+		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
+			Process.Start(Global.AppPath + '\\' + Global.AppName);
+		}
+
+		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
+			SettingsWindow window = new();
+			window.Show();
+		}
+
 		private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
 			BrowserWindow browser = new();
 			browser.Show();
@@ -34,11 +44,6 @@ namespace zhihu_preserver {
 			Hwnd.Add(wih.Handle);
 			WebPageAddress.Items.Add("about:blank");
 			WebPageTitle.Items.Add("about:blank");
-		}
-
-		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
-			SettingsWindow window = new();
-			window.Show();
 		}
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {

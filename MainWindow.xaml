@@ -16,7 +16,7 @@
 		</Grid.RowDefinitions>
 		<Menu Grid.Row="0">
 			<MenuItem Header="{x:Static p:Resources.Program}">
-				<MenuItem Header="{x:Static p:Resources.Multiboxing}"/>
+				<MenuItem Header="{x:Static p:Resources.Multiboxing}" Click="Menu_Program_Multiboxing_Click"/>
 				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.Settings}" Click="Menu_Program_Settings_Click"/>
 				<Separator/>
