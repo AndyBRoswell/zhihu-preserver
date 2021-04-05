@@ -214,6 +214,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 新页面.
+        /// </summary>
+        public static string NewPage {
+            get {
+                return ResourceManager.GetString("NewPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 新标签页.
         /// </summary>
         public static string NewTab {

@@ -168,6 +168,9 @@
   <data name="NewBrowserWindow" xml:space="preserve">
     <value>新建浏览器窗口</value>
   </data>
+  <data name="NewPage" xml:space="preserve">
+    <value>新页面</value>
+  </data>
   <data name="NewTab" xml:space="preserve">
     <value>新标签页</value>
   </data>
