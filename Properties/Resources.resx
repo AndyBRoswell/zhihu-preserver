@@ -165,8 +165,11 @@
   <data name="Multiboxing" xml:space="preserve">
     <value>多开</value>
   </data>
-  <data name="NewBrowserWindow" xml:space="preserve">
-    <value>新建浏览器窗口</value>
+  <data name="NewBrowserWindowBlank" xml:space="preserve">
+    <value>新建浏览器窗口（空白页）</value>
+  </data>
+  <data name="NewBrowserWindowHomePage" xml:space="preserve">
+    <value>新建浏览器窗口（主页）</value>
   </data>
   <data name="NewPage" xml:space="preserve">
     <value>新页面</value>

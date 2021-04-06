@@ -205,11 +205,20 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 新建浏览器窗口.
+        ///   Looks up a localized string similar to 新建浏览器窗口（空白页）.
         /// </summary>
-        public static string NewBrowserWindow {
+        public static string NewBrowserWindowBlank {
             get {
-                return ResourceManager.GetString("NewBrowserWindow", resourceCulture);
+                return ResourceManager.GetString("NewBrowserWindowBlank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 新建浏览器窗口（主页）.
+        /// </summary>
+        public static string NewBrowserWindowHomePage {
+            get {
+                return ResourceManager.GetString("NewBrowserWindowHomePage", resourceCulture);
             }
         }
         

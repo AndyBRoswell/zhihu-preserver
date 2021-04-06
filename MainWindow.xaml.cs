@@ -29,7 +29,7 @@ namespace zhihu_preserver {
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
-			Process.Start(Global.AppPath + '\\' + Global.AppName);
+			Process.Start(Global.AppPathname);
 		}
 
 		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
@@ -37,7 +37,7 @@ namespace zhihu_preserver {
 			window.Show();
 		}
 
-		private void Menu_Edit_New_Browser_Window_Click(object sender, RoutedEventArgs e) {
+		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {
 			BrowserWindow browser = new();
 			browser.Show();
 			var wih = new WindowInteropHelper(browser);
@@ -47,7 +47,7 @@ namespace zhihu_preserver {
 		}
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
-			SettingsWindow.LoadSettings(Global.CfgPath + @"\config.xml");
+			SettingsWindow.LoadSettings(Global.DefaultCfg);
 
 			// Load settings
 			CefSharpSettings.ShutdownOnExit = true;
