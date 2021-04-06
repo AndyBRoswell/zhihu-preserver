@@ -18,7 +18,7 @@
 		</Grid.RowDefinitions>
 		<Menu Grid.Row="0">
 			<MenuItem Header="{x:Static p:Resources.WebPage}">
-				<MenuItem Header="{x:Static p:Resources.NewPage}"/>
+                <MenuItem Header="{x:Static p:Resources.NewBrowserWindowHomePage}"/>
 				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.CloseWindow}"/>
 			</MenuItem>

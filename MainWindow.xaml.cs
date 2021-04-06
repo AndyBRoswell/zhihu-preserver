@@ -46,6 +46,10 @@ namespace zhihu_preserver {
 			WebPageTitle.Items.Add("about:blank");
 		}
 
+		private void Menu_Edit_New_Browser_Window_Blank_Click(object sender, RoutedEventArgs e) {
+
+		}
+
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
 			SettingsWindow.LoadSettings(Global.DefaultCfg);
 

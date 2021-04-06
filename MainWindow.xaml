@@ -24,6 +24,7 @@
 			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Task}">
 				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowHomePage}" Click="Menu_Edit_New_Browser_Window_Home_Click"/>
+				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowBlank}" Click="Menu_Edit_New_Browser_Window_Blank_Click"/>
 				<Separator/>
 			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Help}">

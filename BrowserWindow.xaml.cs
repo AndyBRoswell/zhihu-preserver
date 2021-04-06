@@ -45,7 +45,7 @@ namespace zhihu_preserver {
 		public BrowserWindow(string URL) {
 			InitializeComponent();
 			InitialURL = URL;
-        }
+		}
 
 		public void LoadHomePage() {
 			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
