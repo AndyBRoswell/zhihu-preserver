@@ -37,6 +37,10 @@ namespace zhihu_preserver {
 			window.Show();
 		}
 
+		internal void AddToWindowList(IntPtr hwnd, string URL) {
+
+		}
+
 		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {
 			BrowserWindow browser = new();
 			browser.Show();
