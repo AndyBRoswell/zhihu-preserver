@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -50,6 +51,23 @@ namespace zhihu_preserver {
 		public void LoadHomePage() {
 			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
 			Browser.Load(HomePageURL);
+		}
+
+		private void BrowserForm_Loaded(object sender, RoutedEventArgs e) {
+			if (InitialURL == null) LoadHomePage();
+			else Browser.Load(InitialURL);
+			URLBox.Text = InitialURL;
+
+			// Add to window list
+			//var wih = new WindowInteropHelper(this);
+			//MainWindow.OpenBrowserHwnd.Add(wih.Handle);
+			//MainWindow.GetWindow().WebPageAddress.Items.Add("about:blank");
+			//MainWindow.WebPageTitle.Items.Add("about:blank");
+
+			// Event handlers
+			Browser.AddressChanged += Browser_AddressChanged;
+			Browser.FrameLoadStart += Browser_FrameLoadStart;
+			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
 		}
 
 		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
@@ -99,17 +117,6 @@ namespace zhihu_preserver {
 					PageTurner.Content = "⏬";
 					break;
 			}
-		}
-
-		private void BrowserForm_Loaded(object sender, RoutedEventArgs e) {
-			if (InitialURL == null) LoadHomePage();
-			else Browser.Load(InitialURL);
-			URLBox.Text = InitialURL;
-
-			// Event handlers
-			Browser.AddressChanged += Browser_AddressChanged;
-			Browser.FrameLoadStart += Browser_FrameLoadStart;
-			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
 		}
 	}
 }
