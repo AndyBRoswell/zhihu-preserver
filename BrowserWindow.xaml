@@ -7,7 +7,7 @@
 		xmlns:p="clr-namespace:zhihu_preserver.Properties"
 		xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
 		mc:Ignorable="d"
-		Title="BrowserWindow" Height="720" Width="1280" Loaded="BrowserForm_Loaded">
+		Title="BrowserWindow" Height="720" Width="1280" Loaded="BrowserForm_Loaded" Unloaded="BrowserForm_Unloaded">
 	<Grid Name="BrowserWindowGrid">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>

@@ -81,18 +81,18 @@ namespace zhihu_preserver {
 				BrowserStatusBar.Content = Properties.Resources.LoadComplete;
 			}));
 			MainWindow.ThisWindow.Dispatcher.Invoke(new Action(() => {
-				MainWindow.ModifyBrowserWindowAddress(hwnd, Browser.Address, Browser.Title);
+				MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
 			}));
 		}
 
 		private void Browser_AddressChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			URLBox.Text = Browser.Address;
-			MainWindow.ModifyBrowserWindowAddress(hwnd, Browser.Address, Browser.Title);
+			MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
 		}
 
 		private void Browser_TitleChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			Title = Browser.Title;
-			MainWindow.ModifyBrowserWindowAddress(hwnd, Browser.Address, Browser.Title);
+			MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
 		}
 
 		private void URLBox_KeyDown(object sender, KeyEventArgs e) {
@@ -127,5 +127,9 @@ namespace zhihu_preserver {
 					break;
 			}
 		}
-	}
+
+        private void BrowserForm_Unloaded(object sender, RoutedEventArgs e) {
+			
+        }
+    }
 }
