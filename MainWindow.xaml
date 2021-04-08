@@ -69,10 +69,10 @@
 							</ListBox.ItemTemplate>
 						</ListBox>
 						<!--<DataGrid x:Name="OpenWindowList">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="{x:Static p:Resources.Address}" Binding="{Binding Address}"/>
-                                <DataGridTextColumn Header="{x:Static p:Resources.Title}" Binding="{Binding Title}"/>
-                            </DataGrid.Columns>
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="{x:Static p:Resources.Address}" Binding="{Binding Address}"/>
+								<DataGridTextColumn Header="{x:Static p:Resources.Title}" Binding="{Binding Title}"/>
+							</DataGrid.Columns>
 						</DataGrid>-->
 					</Grid>
 				</GroupBox>

@@ -23,7 +23,7 @@ namespace zhihu_preserver {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	internal class WindowBasicInfoItem {
+	public class WindowBasicInfoItem {
 		public string Address { get; set; }
 		public string Title { get; set; }
 
@@ -32,8 +32,8 @@ namespace zhihu_preserver {
 		}
 	}
 	public partial class MainWindow : Window {
-		//static internal List<IntPtr> OpenBrowserHwnd = new();
-		static internal SortedDictionary<IntPtr, WindowBasicInfoItem> OpenWindowInfo = new();
+		public static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenWindowInfo = new();
+		//public static ListBox OpenWindowList = new();
 		public MainWindow() {
 			InitializeComponent();
 		}
@@ -49,6 +49,7 @@ namespace zhihu_preserver {
 
 		static internal void AddToWindowList(IntPtr hwnd, string URL) {
 			OpenWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
+			//OpenWindowList.Items.Refresh();
 		}
 
 		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {
