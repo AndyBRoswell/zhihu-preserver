@@ -8,6 +8,11 @@
 		xmlns:p="clr-namespace:zhihu_preserver.Properties"
 		mc:Ignorable="d"
 		Title="Console" Height="720" Width="1280" Loaded="MainForm_Loaded">
+
+	<Window.Resources>
+		
+	</Window.Resources>
+	
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
@@ -42,13 +47,27 @@
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
 				<GroupBox Header="{x:Static p:Resources.OpenWebPages}" Grid.Row="0">
-					<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-						<ListBox Name="WebPageTitle" Grid.Column="0"/>
-						<ListBox Name="WebPageAddress" Grid.Column="1"/>
+					<Grid Name="WindowManager">
+						<!--<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>-->
+						<!--<ListBox Name="WebPageTitle" Grid.Column="0"/>
+						<ListBox Name="WebPageAddress" Grid.Column="1"/>-->
+						<ListBox Name="OpenWindowList" HorizontalContentAlignment="Stretch">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<Grid>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*"/>
+											<ColumnDefinition Width="*"/>
+										</Grid.ColumnDefinitions>
+										<TextBlock Text="{Binding Address}" Grid.Column="0"/>
+										<TextBlock Text="{Binding Title}" Grid.Column="1"/>
+									</Grid>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
 					</Grid>
 				</GroupBox>
 				<GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1"/>

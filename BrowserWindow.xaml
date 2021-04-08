@@ -39,7 +39,6 @@
 			<TextBox Name="URLBox" Grid.Column="4" Text="about:blank" KeyDown="URLBox_KeyDown"/>
 			<Button Name="PageTurner" Grid.Column="5" Content="⏬" Click="PageTurner_Click"/>
 		</Grid>
-		<!--wpf:ChromiumWebBrowser will be inserted here. See BrowserWindow.xaml.cs-->
 		<wpf:ChromiumWebBrowser Name="Browser" Grid.Row="2"/>
 		<StatusBar Grid.Row="3">
 			<StatusBarItem Name="BrowserStatusBar" Content="{x:Static p:Resources.Ready}"/>

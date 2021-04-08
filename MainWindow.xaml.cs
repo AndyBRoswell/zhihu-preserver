@@ -22,10 +22,17 @@ namespace zhihu_preserver {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
+	internal class WindowBasicInfoItem {
+		public string Address { get; set; }
+		public string Title { get; set; }
+
+		public WindowBasicInfoItem(string addr, string title) {
+			Address = addr; Title = title;
+		}
+	}
 	public partial class MainWindow : Window {
-		static internal List<IntPtr> OpenBrowserHwnd = new();
-		//static internal ListBox WebPageTitle = new();
-		//static internal ListBox WebPageAddress = new();
+		//static internal List<IntPtr> OpenBrowserHwnd = new();
+		static internal SortedDictionary<IntPtr, WindowBasicInfoItem> OpenWindowInfo = new();
 		public MainWindow() {
 			InitializeComponent();
 		}
@@ -37,16 +44,10 @@ namespace zhihu_preserver {
 		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
 			SettingsWindow window = new();
 			window.Show();
-
-			// Add to window list
-			var wih = new WindowInteropHelper(this);
-			MainWindow.OpenBrowserHwnd.Add(wih.Handle);
-			WebPageAddress.Items.Add("about:blank");
-			WebPageTitle.Items.Add("about:blank");
 		}
 
 		static internal void AddToWindowList(IntPtr hwnd, string URL) {
-
+			OpenWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
 		}
 
 		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {
@@ -72,6 +73,17 @@ namespace zhihu_preserver {
 			// NOTE: The executing user must have sufficient privileges to write to this folder.
 			settings.CachePath = Global.CachePath;
 			Cef.Initialize(settings);
+
+			// Part of controls
+			OpenWindowList.ItemsSource = OpenWindowInfo.Values;
+			AddToWindowList((IntPtr)0, "test0");
+			AddToWindowList((IntPtr)1, "test1");
+			AddToWindowList((IntPtr)2, "test2");
+			AddToWindowList((IntPtr)3, "test3");
+			AddToWindowList((IntPtr)4, "test4");
+			AddToWindowList((IntPtr)5, "test5");
+			AddToWindowList((IntPtr)6, "test6");
+			AddToWindowList((IntPtr)7, "test7");
 		}
 	}
 }

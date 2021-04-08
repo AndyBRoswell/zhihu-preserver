@@ -59,10 +59,11 @@ namespace zhihu_preserver {
 			URLBox.Text = InitialURL;
 
 			// Add to window list
-			//var wih = new WindowInteropHelper(this);
+			var wih = new WindowInteropHelper(this);
 			//MainWindow.OpenBrowserHwnd.Add(wih.Handle);
 			//MainWindow.GetWindow().WebPageAddress.Items.Add("about:blank");
 			//MainWindow.WebPageTitle.Items.Add("about:blank");
+			MainWindow.AddToWindowList(wih.Handle, Browser.Address);
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;
