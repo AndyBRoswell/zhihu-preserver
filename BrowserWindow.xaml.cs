@@ -63,7 +63,7 @@ namespace zhihu_preserver {
 			//MainWindow.OpenBrowserHwnd.Add(wih.Handle);
 			//MainWindow.GetWindow().WebPageAddress.Items.Add("about:blank");
 			//MainWindow.WebPageTitle.Items.Add("about:blank");
-			MainWindow.AddToWindowList(wih.Handle, "test");
+			MainWindow.AddToWindowList(wih.Handle, Browser.Address);
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;

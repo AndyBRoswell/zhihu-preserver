@@ -32,10 +32,12 @@ namespace zhihu_preserver {
 		}
 	}
 	public partial class MainWindow : Window {
-		public static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenWindowInfo = new();
+		static MainWindow ThisWindow;
+		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenWindowInfo = new();
 		//public static ListBox OpenWindowList = new();
 		public MainWindow() {
 			InitializeComponent();
+			ThisWindow = this;
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
@@ -49,7 +51,7 @@ namespace zhihu_preserver {
 
 		static internal void AddToWindowList(IntPtr hwnd, string URL) {
 			OpenWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
-			//OpenWindowList.Items.Refresh();
+			ThisWindow.OpenWindowList.Items.Refresh();
 		}
 
 		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {
