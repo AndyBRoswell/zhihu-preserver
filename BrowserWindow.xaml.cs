@@ -128,8 +128,8 @@ namespace zhihu_preserver {
 			}
 		}
 
-        private void BrowserForm_Unloaded(object sender, RoutedEventArgs e) {
+		private void BrowserForm_Unloaded(object sender, RoutedEventArgs e) {
 			
-        }
-    }
+		}
+	}
 }
