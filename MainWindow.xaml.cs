@@ -77,13 +77,13 @@ namespace zhihu_preserver {
 			// Part of controls
 			OpenWindowList.ItemsSource = OpenWindowInfo.Values;
 			AddToWindowList((IntPtr)0, "test0");
-			AddToWindowList((IntPtr)1, "test1");
+			//AddToWindowList((IntPtr)1, "test1");
 			AddToWindowList((IntPtr)2, "test2");
-			AddToWindowList((IntPtr)3, "test3");
-			AddToWindowList((IntPtr)4, "test4");
-			AddToWindowList((IntPtr)5, "test5");
-			AddToWindowList((IntPtr)6, "test6");
-			AddToWindowList((IntPtr)7, "test7");
+			//AddToWindowList((IntPtr)3, "test3");
+			//AddToWindowList((IntPtr)4, "test4");
+			//AddToWindowList((IntPtr)5, "test5");
+			//AddToWindowList((IntPtr)6, "test6");
+			//AddToWindowList((IntPtr)7, "test7");
 		}
 	}
 }

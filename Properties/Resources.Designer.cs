@@ -70,6 +70,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 地址.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 应用.
         /// </summary>
         public static string Apply {
@@ -309,6 +318,15 @@ namespace zhihu_preserver.Properties {
         public static string TaskQueue {
             get {
                 return ResourceManager.GetString("TaskQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 标题.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
         
