@@ -24,8 +24,8 @@ namespace zhihu_preserver {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	class WindowBasicInfoItem {
-		string Address { get; set; }
-		string Title { get; set; }
+		public string Address { get; set; }
+		public string Title { get; set; }
 
 		public WindowBasicInfoItem(string addr, string title) {
 			Address = addr; Title = title;
