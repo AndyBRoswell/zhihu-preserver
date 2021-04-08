@@ -23,21 +23,24 @@ namespace zhihu_preserver {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public class WindowBasicInfoItem {
-		public string Address { get; set; }
-		public string Title { get; set; }
+	class WindowBasicInfoItem {
+		string Address { get; set; }
+		string Title { get; set; }
 
 		public WindowBasicInfoItem(string addr, string title) {
 			Address = addr; Title = title;
 		}
 	}
 	public partial class MainWindow : Window {
-		static MainWindow ThisWindow;
+		static readonly MainWindow ThisWindow = Application.Current.MainWindow as MainWindow;
 		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenWindowInfo = new();
-		//public static ListBox OpenWindowList = new();
 		public MainWindow() {
 			InitializeComponent();
-			ThisWindow = this;
+		}
+
+		static internal void AddToWindowList(IntPtr hwnd, string URL) {
+			OpenWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
+			ThisWindow.OpenWindowList.Items.Refresh();
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
@@ -47,11 +50,6 @@ namespace zhihu_preserver {
 		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
 			SettingsWindow window = new();
 			window.Show();
-		}
-
-		static internal void AddToWindowList(IntPtr hwnd, string URL) {
-			OpenWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
-			ThisWindow.OpenWindowList.Items.Refresh();
 		}
 
 		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {

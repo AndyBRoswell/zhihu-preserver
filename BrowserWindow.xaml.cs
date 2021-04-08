@@ -25,14 +25,14 @@ namespace zhihu_preserver {
 		string InitialURL;
 		string HomePageURL;
 
-		internal bool ContinueToPressEnd = false;
-		internal readonly KeyEvent KeyDownEnd = new() {
+		bool ContinueToPressEnd = false;
+		readonly KeyEvent KeyDownEnd = new() {
 			FocusOnEditableField = false,
 			IsSystemKey = false,
 			Type = KeyEventType.KeyDown,
 			WindowsKeyCode = 35
 		};
-		internal readonly KeyEvent KeyUpEnd = new() {
+		readonly KeyEvent KeyUpEnd = new() {
 			FocusOnEditableField = false,
 			IsSystemKey = false,
 			Type = KeyEventType.KeyUp,
@@ -60,10 +60,7 @@ namespace zhihu_preserver {
 
 			// Add to window list
 			var wih = new WindowInteropHelper(this);
-			//MainWindow.OpenBrowserHwnd.Add(wih.Handle);
-			//MainWindow.GetWindow().WebPageAddress.Items.Add("about:blank");
-			//MainWindow.WebPageTitle.Items.Add("about:blank");
-			MainWindow.AddToWindowList(wih.Handle, Browser.Address);
+			MainWindow.AddToWindowList(wih.Handle, InitialURL);
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;
