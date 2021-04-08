@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -74,16 +75,8 @@ namespace zhihu_preserver {
 			settings.CachePath = Global.CachePath;
 			Cef.Initialize(settings);
 
-			// Part of controls
+			// Controls initialization
 			OpenWindowList.ItemsSource = OpenWindowInfo.Values;
-			AddToWindowList((IntPtr)0, "test0");
-			//AddToWindowList((IntPtr)1, "test1");
-			AddToWindowList((IntPtr)2, "test2");
-			//AddToWindowList((IntPtr)3, "test3");
-			//AddToWindowList((IntPtr)4, "test4");
-			//AddToWindowList((IntPtr)5, "test5");
-			//AddToWindowList((IntPtr)6, "test6");
-			//AddToWindowList((IntPtr)7, "test7");
 		}
 	}
 }
