@@ -62,7 +62,6 @@ namespace zhihu_preserver {
 			// Add to window list
 			var wih = new WindowInteropHelper(this);
 			hwnd = wih.Handle;
-			MainWindow.AddToBrowserWindowList(hwnd, InitialURL);
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;

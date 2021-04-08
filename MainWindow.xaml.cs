@@ -38,11 +38,6 @@ namespace zhihu_preserver {
 			InitializeComponent();
 		}
 
-		static internal void AddToBrowserWindowList(IntPtr hwnd, string URL) {
-			OpenBrowserWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
-			ThisWindow.OpenBrowserWindowList.Items.Refresh();
-		}
-
 		static internal void ModifyBrowserWindowAddress(IntPtr hwnd, string address, string title) {
 			OpenBrowserWindowInfo[hwnd] = new WindowBasicInfoItem(address, title);
 			ThisWindow.OpenBrowserWindowList.Items.Refresh();
