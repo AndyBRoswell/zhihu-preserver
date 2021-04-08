@@ -48,12 +48,6 @@
 				</Grid.RowDefinitions>
 				<GroupBox Header="{x:Static p:Resources.OpenWebPages}" Grid.Row="0">
 					<Grid Name="WindowManager">
-						<!--<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*"/>
-							<ColumnDefinition Width="*"/>
-						</Grid.ColumnDefinitions>-->
-						<!--<ListBox Name="WebPageTitle" Grid.Column="0"/>
-						<ListBox Name="WebPageAddress" Grid.Column="1"/>-->
 						<ListBox Name="OpenWindowList" HorizontalContentAlignment="Stretch">
 							<ListBox.ItemTemplate>
 								<DataTemplate>
@@ -68,12 +62,6 @@
 								</DataTemplate>
 							</ListBox.ItemTemplate>
 						</ListBox>
-						<!--<DataGrid x:Name="OpenWindowList">
-							<DataGrid.Columns>
-								<DataGridTextColumn Header="{x:Static p:Resources.Address}" Binding="{Binding Address}"/>
-								<DataGridTextColumn Header="{x:Static p:Resources.Title}" Binding="{Binding Title}"/>
-							</DataGrid.Columns>
-						</DataGrid>-->
 					</Grid>
 				</GroupBox>
 				<GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1"/>
