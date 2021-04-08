@@ -32,15 +32,20 @@ namespace zhihu_preserver {
 		}
 	}
 	public partial class MainWindow : Window {
-		static readonly MainWindow ThisWindow = Application.Current.MainWindow as MainWindow;
-		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenWindowInfo = new();
+		internal static readonly MainWindow ThisWindow = Application.Current.MainWindow as MainWindow;
+		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenBrowserWindowInfo = new();
 		public MainWindow() {
 			InitializeComponent();
 		}
 
-		static internal void AddToWindowList(IntPtr hwnd, string URL) {
-			OpenWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
-			ThisWindow.OpenWindowList.Items.Refresh();
+		static internal void AddToBrowserWindowList(IntPtr hwnd, string URL) {
+			OpenBrowserWindowInfo.Add(hwnd, new WindowBasicInfoItem(URL, URL));
+			ThisWindow.OpenBrowserWindowList.Items.Refresh();
+		}
+
+		static internal void ModifyBrowserWindowAddress(IntPtr hwnd, string address, string title) {
+			OpenBrowserWindowInfo[hwnd] = new WindowBasicInfoItem(address, title);
+			ThisWindow.OpenBrowserWindowList.Items.Refresh();
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
@@ -53,12 +58,13 @@ namespace zhihu_preserver {
 		}
 
 		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {
-			BrowserWindow browser = new();
-			browser.Show();
+			BrowserWindow window = new();
+			window.Show();
 		}
 
 		private void Menu_Edit_New_Browser_Window_Blank_Click(object sender, RoutedEventArgs e) {
-
+			BrowserWindow window = new("about:blank");
+			window.Show();
 		}
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
@@ -77,7 +83,7 @@ namespace zhihu_preserver {
 			Cef.Initialize(settings);
 
 			// Controls initialization
-			OpenWindowList.ItemsSource = OpenWindowInfo.Values;
+			OpenBrowserWindowList.ItemsSource = OpenBrowserWindowInfo.Values;
 		}
 	}
 }

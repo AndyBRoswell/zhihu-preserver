@@ -48,7 +48,7 @@
 				</Grid.RowDefinitions>
 				<GroupBox Header="{x:Static p:Resources.OpenWebPages}" Grid.Row="0">
 					<Grid Name="WindowManager">
-						<ListBox Name="OpenWindowList" HorizontalContentAlignment="Stretch">
+						<ListBox Name="OpenBrowserWindowList" HorizontalContentAlignment="Stretch">
 							<ListBox.ItemTemplate>
 								<DataTemplate>
 									<Grid>

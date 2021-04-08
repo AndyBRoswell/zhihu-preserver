@@ -24,6 +24,7 @@ namespace zhihu_preserver {
 	public partial class BrowserWindow : Window {
 		string InitialURL;
 		string HomePageURL;
+		IntPtr hwnd;
 
 		bool ContinueToPressEnd = false;
 		readonly KeyEvent KeyDownEnd = new() {
@@ -60,12 +61,14 @@ namespace zhihu_preserver {
 
 			// Add to window list
 			var wih = new WindowInteropHelper(this);
-			MainWindow.AddToWindowList(wih.Handle, InitialURL);
+			hwnd = wih.Handle;
+			MainWindow.AddToBrowserWindowList(hwnd, InitialURL);
 
 			// Event handlers
 			Browser.AddressChanged += Browser_AddressChanged;
 			Browser.FrameLoadStart += Browser_FrameLoadStart;
 			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
+			Browser.TitleChanged += Browser_TitleChanged;
 		}
 
 		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
@@ -78,10 +81,19 @@ namespace zhihu_preserver {
 			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
 				BrowserStatusBar.Content = Properties.Resources.LoadComplete;
 			}));
+			MainWindow.ThisWindow.Dispatcher.Invoke(new Action(() => {
+				MainWindow.ModifyBrowserWindowAddress(hwnd, Browser.Address, Browser.Title);
+			}));
 		}
 
 		private void Browser_AddressChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			URLBox.Text = Browser.Address;
+			MainWindow.ModifyBrowserWindowAddress(hwnd, Browser.Address, Browser.Title);
+		}
+
+		private void Browser_TitleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			Title = Browser.Title;
+			MainWindow.ModifyBrowserWindowAddress(hwnd, Browser.Address, Browser.Title);
 		}
 
 		private void URLBox_KeyDown(object sender, KeyEventArgs e) {
