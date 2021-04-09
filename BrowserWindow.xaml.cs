@@ -197,10 +197,12 @@ namespace zhihu_preserver {
 			if (SavePath.EndsWith('\\') == false) SavePath += '\\';
 			string title = null;
 			Browser.Dispatcher.Invoke(() => { title = Browser.Title; });
+
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + title);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.SavePath + SavePath);
 			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
 			HTML = NoAutoRefreshForDownloadedWebPage(HTML);
+
 			File.WriteAllText(SavePath + title + ".html", HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
 		}
