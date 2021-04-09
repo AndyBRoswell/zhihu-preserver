@@ -88,6 +88,33 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 已删除自动刷新脚本。.
+        /// </summary>
+        public static string AutoRefreshScriptDeleted {
+            get {
+                return ResourceManager.GetString("AutoRefreshScriptDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 已找到自动刷新脚本。.
+        /// </summary>
+        public static string AutoRefreshScriptFound {
+            get {
+                return ResourceManager.GetString("AutoRefreshScriptFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 未找到自动刷新脚本。.
+        /// </summary>
+        public static string AutoRefreshScriptNotFound {
+            get {
+                return ResourceManager.GetString("AutoRefreshScriptNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 浏览.
         /// </summary>
         public static string Browsing {
@@ -399,6 +426,15 @@ namespace zhihu_preserver.Properties {
         public static string WebPageDownloadStart {
             get {
                 return ResourceManager.GetString("WebPageDownloadStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 网页解析完成。.
+        /// </summary>
+        public static string WebPageParseComplete {
+            get {
+                return ResourceManager.GetString("WebPageParseComplete", resourceCulture);
             }
         }
     }

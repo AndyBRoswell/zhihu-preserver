@@ -1,4 +1,10 @@
-﻿using CefSharp;
+﻿using AngleSharp;
+using AngleSharp.Dom;
+using AngleSharp.Html;
+using AngleSharp.Html.Dom;
+using AngleSharp.Html.Parser;
+using AngleSharp.Text;
+using CefSharp;
 using CefSharp.Wpf;
 using System;
 using System.Collections.Generic;
@@ -166,7 +172,20 @@ namespace zhihu_preserver {
 		}
 
 		private string NoAutoRefreshForDownloadedWebPage(string HTML) {
-			return "";
+			HtmlParser parser = new();
+			IHtmlDocument document = parser.ParseDocument(HTML);
+			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageParseComplete);
+			IHtmlCollection<IElement> AutoRefreshScript = document.QuerySelectorAll(@"script[id=js-clientConfig]");
+			if (AutoRefreshScript.Length > 0) {
+				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.AutoRefreshScriptFound);
+				foreach (var element in AutoRefreshScript) { element.Parent.RemoveChild(element); }
+				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.AutoRefreshScriptDeleted);
+			}
+			else MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.AutoRefreshScriptNotFound);
+			StringWriter writer = new();
+			HtmlMarkupFormatter formatter = new();
+			document.ToHtml(writer, formatter);
+			return writer.ToString();
 		}
 
 		private void SaveWebPage(string SavePath) {
@@ -176,7 +195,7 @@ namespace zhihu_preserver {
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + title);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.SavePath + SavePath);
 			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
-			//HTML = NoAutoRefreshForDownloadedWebPage(HTML);
+			HTML = NoAutoRefreshForDownloadedWebPage(HTML);
 			File.WriteAllText(SavePath + title + ".html", HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
 		}

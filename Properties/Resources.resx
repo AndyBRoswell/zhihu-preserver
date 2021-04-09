@@ -126,6 +126,15 @@
   <data name="Apply" xml:space="preserve">
     <value>应用</value>
   </data>
+  <data name="AutoRefreshScriptDeleted" xml:space="preserve">
+    <value>已删除自动刷新脚本。</value>
+  </data>
+  <data name="AutoRefreshScriptFound" xml:space="preserve">
+    <value>已找到自动刷新脚本。</value>
+  </data>
+  <data name="AutoRefreshScriptNotFound" xml:space="preserve">
+    <value>未找到自动刷新脚本。</value>
+  </data>
   <data name="Browsing" xml:space="preserve">
     <value>浏览</value>
   </data>
@@ -230,5 +239,8 @@
   </data>
   <data name="WebPageDownloadStart" xml:space="preserve">
     <value>开始下载网页 </value>
+  </data>
+  <data name="WebPageParseComplete" xml:space="preserve">
+    <value>网页解析完成。</value>
   </data>
 </root>
