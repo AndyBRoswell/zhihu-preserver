@@ -36,7 +36,9 @@ namespace zhihu_preserver {
 		internal static readonly MainWindow ThisWindow = Application.Current.MainWindow as MainWindow;
 		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenBrowserWindowInfo = new();
 
-		internal static TextBlock LogBlock = new();
+		internal static TextBlock LogBlock = new() {
+			TextWrapping = TextWrapping.Wrap
+		};
 
 		public MainWindow() {
 			InitializeComponent();
@@ -102,10 +104,23 @@ namespace zhihu_preserver {
 
 			// Controls initialization
 			OpenBrowserWindowList.ItemsSource = OpenBrowserWindowInfo.Values;
-			StatusPanelGrid.Children.Insert(0, LogBlock);
+			LogBlockSlot.Content = LogBlock;
 
 			WriteToLog(Properties.Resources.Information, Properties.Resources.SystemLoaded);
-			WriteToLog(Properties.Resources.Information, @"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		}
+
+		private void LogBlockSlot_ScrollChanged(object sender, ScrollChangedEventArgs e) {
+			ScrollViewer sv = sender as ScrollViewer;
+			bool AutoScrollToEnd = true;
+			if (sv.Tag != null) AutoScrollToEnd = (bool)sv.Tag;
+			if (e.ExtentHeightChange == 0) {// user scroll i.e. contents aren't modified
+				AutoScrollToEnd = (sv.ScrollableHeight == sv.VerticalOffset); // if scroll bar isn't at the bottom, then don't scroll, because the user may be viewing the contents
+			}
+			else {// contents are modified
+				if (AutoScrollToEnd) sv.ScrollToEnd();
+			}
+			sv.Tag = AutoScrollToEnd;
+			return;
 		}
 	}
 }

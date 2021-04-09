@@ -67,13 +67,15 @@
 				<GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1"/>
 				<GroupBox Header="{x:Static p:Resources.ControlPanel}" Grid.Row="2"/>
 				<GroupBox Header="{x:Static p:Resources.StatusPanel}" Grid.Row="3">
-					<Grid Name="StatusPanelGrid">
+					<Grid>
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*"/>
 							<ColumnDefinition Width="*"/>
 						</Grid.ColumnDefinitions>
+						<ScrollViewer Name="LogBlockSlot" Grid.Column="0" ScrollChanged="LogBlockSlot_ScrollChanged">
+							<!--A TextBlock will be added here. See MainWindow.xaml.cs-->
+						</ScrollViewer>
 					</Grid>
-                    <!--A TextBlock will be added here. See MainWindow.xaml.cs-->
 				</GroupBox>
 			</Grid>
 		</Grid>
