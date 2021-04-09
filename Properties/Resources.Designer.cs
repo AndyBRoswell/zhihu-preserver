@@ -322,6 +322,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 系统加载完毕。.
         /// </summary>
         public static string SystemLoaded {
@@ -372,6 +381,24 @@ namespace zhihu_preserver.Properties {
         public static string WebPage {
             get {
                 return ResourceManager.GetString("WebPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 网页下载完成。.
+        /// </summary>
+        public static string WebPageDownloadComplete {
+            get {
+                return ResourceManager.GetString("WebPageDownloadComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 开始下载网页…….
+        /// </summary>
+        public static string WebPageDownloadStart {
+            get {
+                return ResourceManager.GetString("WebPageDownloadStart", resourceCulture);
             }
         }
     }

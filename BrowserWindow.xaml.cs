@@ -138,20 +138,25 @@ namespace zhihu_preserver {
 			MainWindow.DeleteBrowserWindowInfo(hwnd);
 		}
 
-		private async void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
-			string savepath = SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath");
-			MatchCollection matches = PSVarPattern.Matches(savepath);
+		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
+			string SavePath = SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath");
+			MatchCollection matches = PSVarPattern.Matches(SavePath);
 			foreach (Match match in matches) {
 				char[] t = match.Value.Substring(match.Value.Length - 1).ToCharArray();
 				string varname;
 				if (char.IsLetterOrDigit(t[0]) == false && t[0] != '?') varname = match.Value[0..^1];
 				else varname = match.Value;
-				savepath = savepath.Replace(varname, Global.Const[varname]);
+				SavePath = SavePath.Replace(varname, Global.Const[varname]);
 			}
-			if (savepath.EndsWith('\\') == false) savepath += '\\';
-			
+			if (SavePath.EndsWith('\\') == false) SavePath += '\\';
+			Task.Run(() => SaveWebPage(SavePath));
+		}
+
+		private void SaveWebPage(string SavePath) {
+			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart);
 			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
-			await File.WriteAllTextAsync(savepath + Browser.Title + ".html", HTML);
+			File.WriteAllText(SavePath + Browser.Title + ".html", HTML);
+			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
 		}
 	}
 }

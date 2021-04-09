@@ -204,6 +204,9 @@
   <data name="StatusPanel" xml:space="preserve">
     <value>状态面板</value>
   </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
   <data name="SystemLoaded" xml:space="preserve">
     <value>系统加载完毕。</value>
   </data>
@@ -221,5 +224,11 @@
   </data>
   <data name="WebPage" xml:space="preserve">
     <value>网页</value>
+  </data>
+  <data name="WebPageDownloadComplete" xml:space="preserve">
+    <value>网页下载完成。</value>
+  </data>
+  <data name="WebPageDownloadStart" xml:space="preserve">
+    <value>开始下载网页……</value>
   </data>
 </root>
