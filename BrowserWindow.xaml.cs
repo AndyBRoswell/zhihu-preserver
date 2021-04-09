@@ -160,6 +160,8 @@ namespace zhihu_preserver {
 
 		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
 			string SavePath = SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath");
+
+			// Replace the variables in the pathname
 			MatchCollection matches = PSVarPattern.Matches(SavePath);
 			foreach (Match match in matches) {
 				char[] t = match.Value[^1..].ToCharArray();
@@ -168,6 +170,7 @@ namespace zhihu_preserver {
 				else varname = match.Value[1..];
 				SavePath = SavePath.Replace('$' + varname, Global.Const[varname]);
 			}
+			
 			Task.Run(() => SaveWebPage(SavePath));
 		}
 
@@ -175,6 +178,7 @@ namespace zhihu_preserver {
 			HtmlParser parser = new();
 			IHtmlDocument document = parser.ParseDocument(HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageParseComplete);
+
 			IHtmlCollection<IElement> AutoRefreshScript = document.QuerySelectorAll(@"script[id=js-clientConfig]");
 			if (AutoRefreshScript.Length > 0) {
 				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.AutoRefreshScriptFound);
@@ -182,6 +186,7 @@ namespace zhihu_preserver {
 				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.AutoRefreshScriptDeleted);
 			}
 			else MainWindow.WriteToLog(Properties.Resources.Error, Properties.Resources.AutoRefreshScriptNotFound);
+
 			StringWriter writer = new();
 			HtmlMarkupFormatter formatter = new();
 			document.ToHtml(writer, formatter);
