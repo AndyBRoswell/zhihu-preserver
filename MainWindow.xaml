@@ -79,7 +79,7 @@
 								<ColumnDefinition Width="4*"/>
 							</Grid.ColumnDefinitions>
 							<ComboBox/>
-							<TextBox/>
+							<TextBox Name="TaskURL"/>
 						</Grid>
 					</Grid>
 				</GroupBox>
