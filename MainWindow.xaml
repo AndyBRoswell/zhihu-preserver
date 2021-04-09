@@ -64,7 +64,9 @@
 						</ListBox>
 					</Grid>
 				</GroupBox>
-				<GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1"/>
+                <GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1">
+                    
+                </GroupBox>
 				<GroupBox Header="{x:Static p:Resources.ControlPanel}" Grid.Row="2"/>
 				<GroupBox Header="{x:Static p:Resources.StatusPanel}" Grid.Row="3">
 					<Grid>

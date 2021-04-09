@@ -367,6 +367,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 单个问题.
+        /// </summary>
+        public static string SingleQuestion {
+            get {
+                return ResourceManager.GetString("SingleQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 状态面板.
         /// </summary>
         public static string StatusPanel {
@@ -399,6 +408,15 @@ namespace zhihu_preserver.Properties {
         public static string TaskQueue {
             get {
                 return ResourceManager.GetString("TaskQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 任务类型.
+        /// </summary>
+        public static string TaskType {
+            get {
+                return ResourceManager.GetString("TaskType", resourceCulture);
             }
         }
         

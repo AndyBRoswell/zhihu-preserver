@@ -32,6 +32,12 @@ namespace zhihu_preserver {
 		}
 	}
 
+	class TaskItem {
+		public string URL { get; set; }
+		public string Title { get; set; }
+		public string Type { get; set; }
+    }
+
 	public partial class MainWindow : Window {
 		internal static readonly MainWindow ThisWindow = Application.Current.MainWindow as MainWindow;
 		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenBrowserWindowInfo = new();
