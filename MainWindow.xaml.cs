@@ -60,35 +60,47 @@ namespace zhihu_preserver {
 			});
 		}
 
+		static internal void NewSettingsWindow() {
+			SettingsWindow window = new();
+			window.Show();
+		}
+
+		static internal void NewBrowserWindowHome() {
+			BrowserWindow window = new();
+			window.Show();
+		}
+
+		static internal void NewBrowserWindow(string URL) {
+			BrowserWindow window = new(URL);
+			window.Show();
+		}
+
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
 			Process.Start(Global.Const["AppPathname"]);
 		}
 
 		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
-			SettingsWindow window = new();
-			window.Show();
+			NewSettingsWindow();
 		}
 
 		private void Menu_Edit_New_Browser_Window_Home_Click(object sender, RoutedEventArgs e) {
-			BrowserWindow window = new();
-			window.Show();
+			NewBrowserWindowHome();
 		}
 
 		private void Menu_Edit_New_Browser_Window_Blank_Click(object sender, RoutedEventArgs e) {
-			BrowserWindow window = new("about:blank");
-			window.Show();
+			NewBrowserWindow("about:blank");
 		}
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
-            // Load basic constants
-            Global.Const.Add("AppName", AppDomain.CurrentDomain.FriendlyName);
-            Global.Const.Add("AppPath", Directory.GetCurrentDirectory());
-            Global.Const.Add("AppPathname", Global.Const["AppPath"] + '\\' + Global.Const["AppName"]);
-            Global.Const.Add("CachePath", Global.Const["AppPath"] + @"\cache");
-            Global.Const.Add("CfgPath", Global.Const["AppPath"] + @"\cfg");
-            Global.Const.Add("DefaultCfg", Global.Const["CfgPath"] + @"\config.xml");
+			// Load basic constants
+			Global.Const.Add("AppName", AppDomain.CurrentDomain.FriendlyName);
+			Global.Const.Add("AppPath", Directory.GetCurrentDirectory());
+			Global.Const.Add("AppPathname", Global.Const["AppPath"] + '\\' + Global.Const["AppName"]);
+			Global.Const.Add("CachePath", Global.Const["AppPath"] + @"\cache");
+			Global.Const.Add("CfgPath", Global.Const["AppPath"] + @"\cfg");
+			Global.Const.Add("DefaultCfg", Global.Const["CfgPath"] + @"\config.xml");
 
-            SettingsWindow.LoadSettings(Global.Const["DefaultCfg"]);
+			SettingsWindow.LoadSettings(Global.Const["DefaultCfg"]);
 
 			// Load CefSettings
 			CefSharpSettings.ShutdownOnExit = true;

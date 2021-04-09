@@ -23,16 +23,16 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Xml;
 
 namespace zhihu_preserver {
 	/// <summary>
 	/// Interaction logic for BrowserWindow.xaml
 	/// </summary>
 	public partial class BrowserWindow : Window {
+		IntPtr hwnd;
+
 		string InitialURL;
 		string HomePageURL;
-		IntPtr hwnd;
 
 		readonly Regex PSVarPattern = new(@"\$[\?\w]+[^\?\w]?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
@@ -171,7 +171,7 @@ namespace zhihu_preserver {
 			Task.Run(() => SaveWebPage(SavePath));
 		}
 
-		private string NoAutoRefreshForDownloadedWebPage(string HTML) {
+		private static string NoAutoRefreshForDownloadedWebPage(string HTML) {
 			HtmlParser parser = new();
 			IHtmlDocument document = parser.ParseDocument(HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageParseComplete);
@@ -181,7 +181,7 @@ namespace zhihu_preserver {
 				foreach (var element in AutoRefreshScript) { element.Parent.RemoveChild(element); }
 				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.AutoRefreshScriptDeleted);
 			}
-			else MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.AutoRefreshScriptNotFound);
+			else MainWindow.WriteToLog(Properties.Resources.Error, Properties.Resources.AutoRefreshScriptNotFound);
 			StringWriter writer = new();
 			HtmlMarkupFormatter formatter = new();
 			document.ToHtml(writer, formatter);
@@ -198,6 +198,22 @@ namespace zhihu_preserver {
 			HTML = NoAutoRefreshForDownloadedWebPage(HTML);
 			File.WriteAllText(SavePath + title + ".html", HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
+		}
+
+		private void Menu_WebPage_Settings_Click(object sender, RoutedEventArgs e) {
+			MainWindow.NewSettingsWindow();
+		}
+
+		private void Menu_WebPage_Duplicate_Click(object sender, RoutedEventArgs e) {
+			MainWindow.NewBrowserWindow(Browser.Address);
+		}
+
+		private void Menu_WebPage_NewBlank_Click(object sender, RoutedEventArgs e) {
+			MainWindow.NewBrowserWindow("about:blank");
+		}
+
+		private void Menu_WebPage_NewHome_Click(object sender, RoutedEventArgs e) {
+			MainWindow.NewBrowserWindowHome();
 		}
 	}
 }

@@ -169,6 +169,24 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 复制当前页面.
+        /// </summary>
+        public static string DuplicateCurrentWebPage {
+            get {
+                return ResourceManager.GetString("DuplicateCurrentWebPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 错误.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 退出.
         /// </summary>
         public static string Exit {

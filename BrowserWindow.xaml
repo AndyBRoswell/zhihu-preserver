@@ -17,9 +17,13 @@
 		</Grid.RowDefinitions>
 		<Menu Grid.Row="0">
 			<MenuItem Header="{x:Static p:Resources.WebPage}">
-				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowHomePage}"/>
+				<MenuItem Header="{x:Static p:Resources.DuplicateCurrentWebPage}" Click="Menu_WebPage_Duplicate_Click"/>
+				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowBlank}" Click="Menu_WebPage_NewBlank_Click"/>
+				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowHomePage}" Click="Menu_WebPage_NewHome_Click"/>
 				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.SaveWebPage}" Click="Menu_WebPage_SaveWebPage_Click"/>
+				<Separator/>
+				<MenuItem Header="{x:Static p:Resources.Settings}" Click="Menu_WebPage_Settings_Click"/>
 				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.CloseWindow}"/>
 			</MenuItem>
