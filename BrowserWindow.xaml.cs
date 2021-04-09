@@ -93,12 +93,16 @@ namespace zhihu_preserver {
 
 		private void Browser_AddressChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			URLBox.Text = Browser.Address;
-			MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
+			MainWindow.ThisWindow.Dispatcher.Invoke(new Action(() => {
+				MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
+			}));
 		}
 
 		private void Browser_TitleChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			Title = Browser.Title;
-			MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
+			MainWindow.ThisWindow.Dispatcher.Invoke(new Action(() => {
+				MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
+			}));
 		}
 
 		private void URLBox_KeyDown(object sender, KeyEventArgs e) {
@@ -153,14 +157,14 @@ namespace zhihu_preserver {
 
 		private void SaveWebPage(string SavePath) {
 			if (SavePath.EndsWith('\\') == false) SavePath += '\\';
-			Dispatcher.Invoke(new Action(() => {
-				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + Browser.Title);
-			}));
+			string title = null;
+			Browser.Dispatcher.Invoke(() => {
+				title = Browser.Title;
+			});
+			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + title);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.SavePath + SavePath);
 			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
-			Dispatcher.Invoke(new Action(() => {
-				File.WriteAllText(SavePath + Browser.Title + ".html", HTML);
-			}));
+			File.WriteAllText(SavePath + title + ".html", HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
 		}
 	}
