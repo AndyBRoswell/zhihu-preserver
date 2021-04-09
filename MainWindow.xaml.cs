@@ -112,14 +112,12 @@ namespace zhihu_preserver {
 		private void LogBlockSlot_ScrollChanged(object sender, ScrollChangedEventArgs e) {
 			ScrollViewer sv = sender as ScrollViewer;
 			bool AutoScrollToEnd = true;
-			if (sv.Tag != null) AutoScrollToEnd = (bool)sv.Tag;
 			if (e.ExtentHeightChange == 0) {// user scroll i.e. contents aren't modified
 				AutoScrollToEnd = (sv.ScrollableHeight == sv.VerticalOffset); // if scroll bar isn't at the bottom, then don't scroll, because the user may be viewing the contents
 			}
 			else {// contents are modified
-				if (AutoScrollToEnd) sv.ScrollToEnd();
+				if (AutoScrollToEnd == true) sv.ScrollToEnd();
 			}
-			sv.Tag = AutoScrollToEnd;
 			return;
 		}
 	}
