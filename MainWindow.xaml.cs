@@ -55,7 +55,9 @@ namespace zhihu_preserver {
 		}
 
 		static internal void WriteToLog(string type, string content) {
-			LogBlock.Text += "[" +  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] [" + type + "] " + content + Global.Const["EOL"];
+			Application.Current.Dispatcher.Invoke(() => {
+				LogBlock.Text += "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] [" + type + "] " + content + Environment.NewLine;
+			});
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
@@ -79,8 +81,6 @@ namespace zhihu_preserver {
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
 			// Load basic constants
-			Global.Const.Add("EOL", "\r\n");
-
 			Global.Const.Add("AppName", AppDomain.CurrentDomain.FriendlyName);
 			Global.Const.Add("AppPath", Directory.GetCurrentDirectory());
 			Global.Const.Add("AppPathname", Global.Const["AppPath"] + '\\' + Global.Const["AppName"]);

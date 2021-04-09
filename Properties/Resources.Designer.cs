@@ -286,6 +286,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 保存路径 .
+        /// </summary>
+        public static string SavePath {
+            get {
+                return ResourceManager.GetString("SavePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 保存网页.
         /// </summary>
         public static string SaveWebPage {
@@ -318,15 +327,6 @@ namespace zhihu_preserver.Properties {
         public static string StatusPanel {
             get {
                 return ResourceManager.GetString("StatusPanel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         
@@ -394,7 +394,7 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 开始下载网页…….
+        ///   Looks up a localized string similar to 开始下载网页 .
         /// </summary>
         public static string WebPageDownloadStart {
             get {

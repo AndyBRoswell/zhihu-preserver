@@ -192,6 +192,9 @@
   <data name="Ready" xml:space="preserve">
     <value>就绪</value>
   </data>
+  <data name="SavePath" xml:space="preserve">
+    <value>保存路径 </value>
+  </data>
   <data name="SaveWebPage" xml:space="preserve">
     <value>保存网页</value>
   </data>
@@ -203,9 +206,6 @@
   </data>
   <data name="StatusPanel" xml:space="preserve">
     <value>状态面板</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
   </data>
   <data name="SystemLoaded" xml:space="preserve">
     <value>系统加载完毕。</value>
@@ -229,6 +229,6 @@
     <value>网页下载完成。</value>
   </data>
   <data name="WebPageDownloadStart" xml:space="preserve">
-    <value>开始下载网页……</value>
+    <value>开始下载网页 </value>
   </data>
 </root>
