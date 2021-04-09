@@ -149,6 +149,7 @@ namespace zhihu_preserver {
 				savepath = savepath.Replace(varname, Global.Const[varname]);
 			}
 			if (savepath.EndsWith('\\') == false) savepath += '\\';
+			
 			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
 			await File.WriteAllTextAsync(savepath + Browser.Title + ".html", HTML);
 		}

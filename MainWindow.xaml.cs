@@ -31,9 +31,13 @@ namespace zhihu_preserver {
 			Address = addr; Title = title;
 		}
 	}
+
 	public partial class MainWindow : Window {
 		internal static readonly MainWindow ThisWindow = Application.Current.MainWindow as MainWindow;
 		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenBrowserWindowInfo = new();
+
+		internal static TextBlock LogBlock = new();
+
 		public MainWindow() {
 			InitializeComponent();
 		}
@@ -48,9 +52,9 @@ namespace zhihu_preserver {
 			ThisWindow.OpenBrowserWindowList.Items.Refresh();
 		}
 
-		internal void WriteToLog(string type, string content) {
+		static internal void WriteToLog(string type, string content) {
 			LogBlock.Text += "[" +  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] [" + type + "] " + content + Global.Const["EOL"];
-        }
+		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
 			Process.Start(Global.Const["AppPathname"]);
@@ -98,8 +102,10 @@ namespace zhihu_preserver {
 
 			// Controls initialization
 			OpenBrowserWindowList.ItemsSource = OpenBrowserWindowInfo.Values;
+			StatusPanelGrid.Children.Insert(0, LogBlock);
 
 			WriteToLog(Properties.Resources.Information, Properties.Resources.SystemLoaded);
+			WriteToLog(Properties.Resources.Information, @"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		}
 	}
 }
