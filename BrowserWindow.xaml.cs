@@ -72,6 +72,16 @@ namespace zhihu_preserver {
 			Browser.FrameLoadStart += Browser_FrameLoadStart;
 			Browser.FrameLoadEnd += Browser_FrameLoadEnd;
 			Browser.TitleChanged += Browser_TitleChanged;
+
+			// Proxy Settings
+			Cef.UIThreadTaskFactory.StartNew(delegate {
+				var RequestContext = Browser.GetBrowserHost().RequestContext;
+                var ProxyParam = new Dictionary<string, object> {
+                    ["mode"] = "direct" // No proxy
+                };
+                string error;
+				bool success = RequestContext.SetPreference("proxy", ProxyParam, out error);
+			});
 		}
 
 		private void WriteOnStatusBar(string text) {
@@ -158,9 +168,7 @@ namespace zhihu_preserver {
 		private void SaveWebPage(string SavePath) {
 			if (SavePath.EndsWith('\\') == false) SavePath += '\\';
 			string title = null;
-			Browser.Dispatcher.Invoke(() => {
-				title = Browser.Title;
-			});
+			Browser.Dispatcher.Invoke(() => { title = Browser.Title; });
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + title);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.SavePath + SavePath);
 			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
