@@ -90,6 +90,10 @@ namespace zhihu_preserver {
 			});
 		}
 
+		private void BrowserForm_Unloaded(object sender, RoutedEventArgs e) {
+			MainWindow.DeleteBrowserWindowInfo(hwnd);
+		}
+
 		private void WriteOnStatusBar(string text) {
 			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
 				BrowserStatusBar.Content = text;
@@ -154,10 +158,6 @@ namespace zhihu_preserver {
 			}
 		}
 
-		private void BrowserForm_Unloaded(object sender, RoutedEventArgs e) {
-			MainWindow.DeleteBrowserWindowInfo(hwnd);
-		}
-
 		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
 			string SavePath = SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath");
 			MatchCollection matches = PSVarPattern.Matches(SavePath);
@@ -171,7 +171,7 @@ namespace zhihu_preserver {
 			Task.Run(() => SaveWebPage(SavePath));
 		}
 
-		private static string NoAutoRefreshForDownloadedWebPage(string HTML) {
+		private static string NoAutoRefreshForDownloadedWebPage(string HTML) { // Delete the script which will make the downloaded Zhihu webpage auto refresh
 			HtmlParser parser = new();
 			IHtmlDocument document = parser.ParseDocument(HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageParseComplete);
