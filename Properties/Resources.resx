@@ -189,6 +189,9 @@
   <data name="Ready" xml:space="preserve">
     <value>就绪</value>
   </data>
+  <data name="SaveWebPage" xml:space="preserve">
+    <value>保存网页</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>设置</value>
   </data>

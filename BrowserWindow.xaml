@@ -19,6 +19,8 @@
 			<MenuItem Header="{x:Static p:Resources.WebPage}">
 				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowHomePage}"/>
 				<Separator/>
+				<MenuItem Header="{x:Static p:Resources.SaveWebPage}" Click="Menu_WebPage_SaveWebPage_Click"/>
+				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.CloseWindow}"/>
 			</MenuItem>
 		</Menu>

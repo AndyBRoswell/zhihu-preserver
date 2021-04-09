@@ -129,7 +129,11 @@ namespace zhihu_preserver {
 		}
 
 		private void BrowserForm_Unloaded(object sender, RoutedEventArgs e) {
-			
+			MainWindow.DeleteBrowserWindowInfo(hwnd);
+		}
+
+		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
+
 		}
 	}
 }
