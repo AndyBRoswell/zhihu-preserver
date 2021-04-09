@@ -66,7 +66,15 @@
 				</GroupBox>
 				<GroupBox Header="{x:Static p:Resources.TaskQueue}" Grid.Row="1"/>
 				<GroupBox Header="{x:Static p:Resources.ControlPanel}" Grid.Row="2"/>
-				<GroupBox Header="{x:Static p:Resources.StatusPanel}" Grid.Row="3"/>
+				<GroupBox Header="{x:Static p:Resources.StatusPanel}" Grid.Row="3">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+						<TextBlock Name="LogBlock" Grid.Column="0" Text="TEST"/>
+					</Grid>
+				</GroupBox>
 			</Grid>
 		</Grid>
 		<StatusBar Grid.Row="2">

@@ -2,6 +2,7 @@
 using CefSharp.Wpf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -27,7 +28,7 @@ namespace zhihu_preserver {
 		string HomePageURL;
 		IntPtr hwnd;
 
-		readonly Regex PSVarPattern = new(@"\$[\?\w]+[^\?\w]", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+		readonly Regex PSVarPattern = new(@"\$[\?\w]+[^\?\w]?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
 		bool ContinueToPressEnd = false;
 		readonly KeyEvent KeyDownEnd = new() {
@@ -137,14 +138,19 @@ namespace zhihu_preserver {
 			MainWindow.DeleteBrowserWindowInfo(hwnd);
 		}
 
-		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
-			MatchCollection matches = PSVarPattern.Matches(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
-			WriteOnStatusBar(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
+		private async void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
+			string savepath = SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath");
+			MatchCollection matches = PSVarPattern.Matches(savepath);
 			foreach (Match match in matches) {
-				switch (match.Value.Substring(0, match.Value.Length - 1)) {
-
-				}
+				char[] t = match.Value.Substring(match.Value.Length - 1).ToCharArray();
+				string varname;
+				if (char.IsLetterOrDigit(t[0]) == false && t[0] != '?') varname = match.Value[0..^1];
+				else varname = match.Value;
+				savepath = savepath.Replace(varname, Global.Const[varname]);
 			}
+			if (savepath.EndsWith('\\') == false) savepath += '\\';
+			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
+			await File.WriteAllTextAsync(savepath + Browser.Title + ".html", HTML);
 		}
 	}
 }

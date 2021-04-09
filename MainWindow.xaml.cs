@@ -78,7 +78,7 @@ namespace zhihu_preserver {
 
 			SettingsWindow.LoadSettings(Global.Const["DefaultCfg"]);
 
-			// Load settings
+			// Load CefSettings
 			CefSharpSettings.ShutdownOnExit = true;
 			Cef.EnableHighDPISupport();
 
