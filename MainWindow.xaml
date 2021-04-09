@@ -72,7 +72,7 @@
 							<ColumnDefinition Width="*"/>
 							<ColumnDefinition Width="*"/>
 						</Grid.ColumnDefinitions>
-						<TextBlock Name="LogBlock" Grid.Column="0" Text="TEST"/>
+						<TextBlock Name="LogBlock" Grid.Column="0"/>
 					</Grid>
 				</GroupBox>
 			</Grid>

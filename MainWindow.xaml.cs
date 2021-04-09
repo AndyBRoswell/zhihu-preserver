@@ -48,6 +48,10 @@ namespace zhihu_preserver {
 			ThisWindow.OpenBrowserWindowList.Items.Refresh();
 		}
 
+		internal void WriteToLog(string type, string content) {
+			LogBlock.Text += "[" +  DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] [" + type + "] " + content + Global.Const["EOL"];
+        }
+
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
 			Process.Start(Global.Const["AppPathname"]);
 		}
@@ -69,6 +73,8 @@ namespace zhihu_preserver {
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
 			// Load basic constants
+			Global.Const.Add("EOL", "\r\n");
+
 			Global.Const.Add("AppName", AppDomain.CurrentDomain.FriendlyName);
 			Global.Const.Add("AppPath", Directory.GetCurrentDirectory());
 			Global.Const.Add("AppPathname", Global.Const["AppPath"] + '\\' + Global.Const["AppName"]);
@@ -92,6 +98,8 @@ namespace zhihu_preserver {
 
 			// Controls initialization
 			OpenBrowserWindowList.ItemsSource = OpenBrowserWindowInfo.Values;
+
+			WriteToLog(Properties.Resources.Information, Properties.Resources.SystemLoaded);
 		}
 	}
 }

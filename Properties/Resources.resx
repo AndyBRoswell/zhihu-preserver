@@ -156,6 +156,9 @@
   <data name="HomePage" xml:space="preserve">
     <value>主页</value>
   </data>
+  <data name="Information" xml:space="preserve">
+    <value>信息</value>
+  </data>
   <data name="LoadComplete" xml:space="preserve">
     <value>加载完毕</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="StatusPanel" xml:space="preserve">
     <value>状态面板</value>
+  </data>
+  <data name="SystemLoaded" xml:space="preserve">
+    <value>系统加载完毕。</value>
   </data>
   <data name="Task" xml:space="preserve">
     <value>任务</value>

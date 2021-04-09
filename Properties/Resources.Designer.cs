@@ -178,6 +178,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 信息.
+        /// </summary>
+        public static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 加载完毕.
         /// </summary>
         public static string LoadComplete {
@@ -309,6 +318,15 @@ namespace zhihu_preserver.Properties {
         public static string StatusPanel {
             get {
                 return ResourceManager.GetString("StatusPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 系统加载完毕。.
+        /// </summary>
+        public static string SystemLoaded {
+            get {
+                return ResourceManager.GetString("SystemLoaded", resourceCulture);
             }
         }
         
