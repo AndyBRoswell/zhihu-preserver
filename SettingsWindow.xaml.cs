@@ -31,5 +31,9 @@ namespace zhihu_preserver {
 		public static void SaveSettings(string xmlFile) {
 			
 		}
+
+		public static string QuerySettingItem(string xpath) {
+			return Global.CfgRoot.SelectSingleNode(xpath).InnerText;
+		}
 	}
 }

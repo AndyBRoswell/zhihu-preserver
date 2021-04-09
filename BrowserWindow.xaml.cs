@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -50,7 +51,7 @@ namespace zhihu_preserver {
 		}
 
 		public void LoadHomePage() {
-			HomePageURL = Global.CfgRoot.SelectSingleNode("/Settings/Browsing/HomePage").InnerText;
+			HomePageURL = SettingsWindow.QuerySettingItem("/Settings/Browsing/HomePage");
 			Browser.Load(HomePageURL);
 		}
 
@@ -70,16 +71,18 @@ namespace zhihu_preserver {
 			Browser.TitleChanged += Browser_TitleChanged;
 		}
 
-		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
+		private void WriteOnStatusBar(string text) {
 			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
-				BrowserStatusBar.Content = Properties.Resources.Loading;
+				BrowserStatusBar.Content = text;
 			}));
 		}
 
+		private void Browser_FrameLoadStart(object sender, FrameLoadStartEventArgs e) {
+			WriteOnStatusBar(Properties.Resources.Loading);
+		}
+
 		private void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e) {
-			BrowserStatusBar.Dispatcher.Invoke(new Action(() => {
-				BrowserStatusBar.Content = Properties.Resources.LoadComplete;
-			}));
+			WriteOnStatusBar(Properties.Resources.LoadComplete);
 			MainWindow.ThisWindow.Dispatcher.Invoke(new Action(() => {
 				MainWindow.ModifyBrowserWindowInfo(hwnd, Browser.Address, Browser.Title);
 			}));
@@ -112,7 +115,7 @@ namespace zhihu_preserver {
 				case false:
 					ContinueToPressEnd = true;
 					PageTurner.Content = "⏸️";
-					int delay = int.Parse(Global.CfgRoot.SelectSingleNode("/Settings/Browsing/KeyPressDelay").InnerText);
+					int delay = int.Parse(SettingsWindow.QuerySettingItem("/Settings/Browsing/KeyPressDelay"));
 					Task.Run(() => {
 						while (ContinueToPressEnd == true) {
 							Browser.GetBrowserHost().SendKeyEvent(KeyDownEnd);
@@ -133,7 +136,11 @@ namespace zhihu_preserver {
 		}
 
 		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
-
+			Regex re = new Regex(@"\$[\][\w][^?\w]", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+			MatchCollection matches = re.Matches("/Settings/Browsing/HTMLSavePath");
+			foreach (Match match in matches) {
+				Console.WriteLine("{0} ", match.Value);
+            }
 		}
 	}
 }
