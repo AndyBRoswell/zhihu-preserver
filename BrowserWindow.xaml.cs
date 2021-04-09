@@ -136,11 +136,12 @@ namespace zhihu_preserver {
 		}
 
 		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
-			Regex re = new Regex(@"\$[\][\w][^?\w]", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-			MatchCollection matches = re.Matches("/Settings/Browsing/HTMLSavePath");
+			Regex re = new Regex(@"\$[?\w][^?\w]", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+			MatchCollection matches = re.Matches(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
+			//WriteOnStatusBar(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
 			foreach (Match match in matches) {
-				Console.WriteLine("{0} ", match.Value);
-            }
+				WriteOnStatusBar(string.Format("Matched {0} ", match.Value));
+			}
 		}
 	}
 }
