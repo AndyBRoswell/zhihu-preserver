@@ -27,6 +27,8 @@ namespace zhihu_preserver {
 		string HomePageURL;
 		IntPtr hwnd;
 
+		readonly Regex PSVarPattern = new(@"\$[\?\w]+[^\?\w]", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
 		bool ContinueToPressEnd = false;
 		readonly KeyEvent KeyDownEnd = new() {
 			FocusOnEditableField = false,
@@ -136,11 +138,12 @@ namespace zhihu_preserver {
 		}
 
 		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
-			Regex re = new Regex(@"\$[?\w][^?\w]", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-			MatchCollection matches = re.Matches(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
-			//WriteOnStatusBar(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
+			MatchCollection matches = PSVarPattern.Matches(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
+			WriteOnStatusBar(SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath"));
 			foreach (Match match in matches) {
-				WriteOnStatusBar(string.Format("Matched {0} ", match.Value));
+				switch (match.Value.Substring(0, match.Value.Length - 1)) {
+
+				}
 			}
 		}
 	}

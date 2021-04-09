@@ -49,7 +49,7 @@ namespace zhihu_preserver {
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
-			Process.Start(Global.AppPathname);
+			Process.Start(Global.Const["AppPathname"]);
 		}
 
 		private void Menu_Program_Settings_Click(object sender, RoutedEventArgs e) {
@@ -68,7 +68,15 @@ namespace zhihu_preserver {
 		}
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
-			SettingsWindow.LoadSettings(Global.DefaultCfg);
+			// Load basic constants
+			Global.Const.Add("AppName", AppDomain.CurrentDomain.FriendlyName);
+			Global.Const.Add("AppPath", Directory.GetCurrentDirectory());
+			Global.Const.Add("AppPathname", Global.Const["AppPath"] + '\\' + Global.Const["AppName"]);
+			Global.Const.Add("CachePath", Global.Const["AppPath"] + @"\cache");
+			Global.Const.Add("CfgPath", Global.Const["AppPath"] + @"\cfg");
+			Global.Const.Add("DefaultCfg", Global.Const["CfgPath"] + @"\config.xml");
+
+			SettingsWindow.LoadSettings(Global.Const["DefaultCfg"]);
 
 			// Load settings
 			CefSharpSettings.ShutdownOnExit = true;
@@ -79,7 +87,7 @@ namespace zhihu_preserver {
 			settings.LogSeverity = LogSeverity.Verbose;
 			// By default CEF uses an in memory cache, to save cached data e.g. to persist cookies you need to specify a cache path
 			// NOTE: The executing user must have sufficient privileges to write to this folder.
-			settings.CachePath = Global.CachePath;
+			settings.CachePath = Global.Const["CachePath"];
 			Cef.Initialize(settings);
 
 			// Controls initialization

@@ -9,12 +9,7 @@ using System.Xml;
 
 namespace zhihu_preserver {
 	static class Global {
-		public static readonly string AppPath = Directory.GetCurrentDirectory();
-		public static readonly string AppName = AppDomain.CurrentDomain.FriendlyName;
-		public static readonly string AppPathname = AppPath + '\\' + AppName;
-		public static readonly string CfgPath = AppPath + @"\cfg";
-		public static readonly string DefaultCfg = CfgPath + @"\config.xml";
-		public static readonly string CachePath = AppPath + @"\cache";
+		public static readonly Dictionary<string, string> Const = new();
 		internal static readonly TreeViewItem CfgTreeViewRoot = new();
 		internal static readonly XmlDocument CfgDoc = new();
 		internal static XmlNode CfgRoot;
