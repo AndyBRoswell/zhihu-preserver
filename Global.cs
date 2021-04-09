@@ -10,6 +10,7 @@ using System.Xml;
 namespace zhihu_preserver {
 	static class Global {
 		public static readonly Dictionary<string, string> Const = new();
+
 		internal static readonly TreeViewItem CfgTreeViewRoot = new();
 		internal static readonly XmlDocument CfgDoc = new();
 		internal static XmlNode CfgRoot;

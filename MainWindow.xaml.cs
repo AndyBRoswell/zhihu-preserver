@@ -80,15 +80,15 @@ namespace zhihu_preserver {
 		}
 
 		private void MainForm_Loaded(object sender, RoutedEventArgs e) {
-			// Load basic constants
-			Global.Const.Add("AppName", AppDomain.CurrentDomain.FriendlyName);
-			Global.Const.Add("AppPath", Directory.GetCurrentDirectory());
-			Global.Const.Add("AppPathname", Global.Const["AppPath"] + '\\' + Global.Const["AppName"]);
-			Global.Const.Add("CachePath", Global.Const["AppPath"] + @"\cache");
-			Global.Const.Add("CfgPath", Global.Const["AppPath"] + @"\cfg");
-			Global.Const.Add("DefaultCfg", Global.Const["CfgPath"] + @"\config.xml");
+            // Load basic constants
+            Global.Const.Add("AppName", AppDomain.CurrentDomain.FriendlyName);
+            Global.Const.Add("AppPath", Directory.GetCurrentDirectory());
+            Global.Const.Add("AppPathname", Global.Const["AppPath"] + '\\' + Global.Const["AppName"]);
+            Global.Const.Add("CachePath", Global.Const["AppPath"] + @"\cache");
+            Global.Const.Add("CfgPath", Global.Const["AppPath"] + @"\cfg");
+            Global.Const.Add("DefaultCfg", Global.Const["CfgPath"] + @"\config.xml");
 
-			SettingsWindow.LoadSettings(Global.Const["DefaultCfg"]);
+            SettingsWindow.LoadSettings(Global.Const["DefaultCfg"]);
 
 			// Load CefSettings
 			CefSharpSettings.ShutdownOnExit = true;
