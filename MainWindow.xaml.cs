@@ -37,6 +37,14 @@ namespace zhihu_preserver {
 		public string Type { get; set; }
 		public string URL { get; set; }
 		public string Title { get; set; }
+
+		public TaskItem(int TypeNo, string Type, string URL) {
+			this.TypeNo = TypeNo; this.Type = Type; this.URL = URL;
+		}
+
+		public TaskItem(int TypeNo, string Type, string URL, string Title) {
+			this.TypeNo = TypeNo; this.Type = Type; this.URL = URL; this.Title = Title;
+		}
 	}
 
 	public partial class MainWindow : Window {
@@ -47,6 +55,10 @@ namespace zhihu_preserver {
 		internal static TextBlock LogBlock = new() {
 			TextWrapping = TextWrapping.Wrap
 		};
+		internal static ComboBox TaskType = new() {
+
+		};
+		internal static TextBox TaskURL = new();
 
 		public MainWindow() {
 			InitializeComponent();
@@ -85,6 +97,10 @@ namespace zhihu_preserver {
 		static internal void NewBrowserWindow(string URL) {
 			BrowserWindow window = new(URL);
 			window.Show();
+		}
+
+		static internal void AddTask() {
+			TaskQueue.AddLast(new TaskItem(TaskType.SelectedIndex, TaskType.Text, TaskURL.Text));
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
@@ -129,7 +145,13 @@ namespace zhihu_preserver {
 			// Controls initialization
 			OpenBrowserWindowList.ItemsSource = OpenBrowserWindowInfo.Values;
 			TaskListBox.ItemsSource = TaskQueue;
+
 			LogBlockSlot.Content = LogBlock;
+
+			TaskQueueController.Children.Add(TaskType);
+			TaskQueueController.Children.Add(TaskURL);
+			Grid.SetColumn(TaskType, 0);
+			Grid.SetColumn(TaskURL, 1);
 
 			WriteToLog(Properties.Resources.Information, Properties.Resources.SystemLoaded);
 		}
@@ -147,7 +169,7 @@ namespace zhihu_preserver {
 		}
 
 		private void AddTask_Click(object sender, RoutedEventArgs e) {
-
+			AddTask();
 		}
 	}
 }
