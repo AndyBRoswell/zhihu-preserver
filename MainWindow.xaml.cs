@@ -33,6 +33,7 @@ namespace zhihu_preserver {
 	}
 
 	class TaskItem {
+		public int TypeNo { get; set; }
 		public string Type { get; set; }
 		public string URL { get; set; }
 		public string Title { get; set; }
@@ -41,6 +42,7 @@ namespace zhihu_preserver {
 	public partial class MainWindow : Window {
 		internal static readonly MainWindow ThisWindow = Application.Current.MainWindow as MainWindow;
 		internal static SortedDictionary<IntPtr, WindowBasicInfoItem> OpenBrowserWindowInfo = new();
+		internal static LinkedList<TaskItem> TaskQueue = new();
 
 		internal static TextBlock LogBlock = new() {
 			TextWrapping = TextWrapping.Wrap
@@ -126,6 +128,7 @@ namespace zhihu_preserver {
 
 			// Controls initialization
 			OpenBrowserWindowList.ItemsSource = OpenBrowserWindowInfo.Values;
+			TaskListBox.ItemsSource = TaskQueue;
 			LogBlockSlot.Content = LogBlock;
 
 			WriteToLog(Properties.Resources.Information, Properties.Resources.SystemLoaded);
