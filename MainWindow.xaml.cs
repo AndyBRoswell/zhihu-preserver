@@ -55,9 +55,7 @@ namespace zhihu_preserver {
 		internal static TextBlock LogBlock = new() {
 			TextWrapping = TextWrapping.Wrap
 		};
-		internal static ComboBox TaskType = new() {
-
-		};
+		internal static ComboBox TaskType = new();
 		internal static TextBox TaskURL = new();
 
 		public MainWindow() {
@@ -149,8 +147,14 @@ namespace zhihu_preserver {
 			LogBlockSlot.Content = LogBlock;
 
 			TaskQueueController.Children.Add(TaskType);
-			TaskQueueController.Children.Add(TaskURL);
 			Grid.SetColumn(TaskType, 0);
+			ComboBoxItem CBISingleQuestion = new() {
+				Content = Properties.Resources.SingleQuestion,
+				IsSelected = true
+			};
+			TaskType.Items.Add(CBISingleQuestion);
+
+			TaskQueueController.Children.Add(TaskURL);
 			Grid.SetColumn(TaskURL, 1);
 
 			WriteToLog(Properties.Resources.Information, Properties.Resources.SystemLoaded);
