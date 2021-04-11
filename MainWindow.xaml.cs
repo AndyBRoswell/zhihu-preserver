@@ -66,6 +66,10 @@ namespace zhihu_preserver {
 			});
 		}
 
+		private void WriteOnStatusBar(string content) {
+			MainStatusBar.Content = content;
+		}
+
 		static internal void NewSettingsWindow() {
 			SettingsWindow window = new();
 			window.Show();
@@ -137,6 +141,10 @@ namespace zhihu_preserver {
 				if (AutoScrollToEnd == true) sv.ScrollToEnd();
 			}
 			return;
+		}
+
+		private void AddTask_Click(object sender, RoutedEventArgs e) {
+
 		}
 	}
 }

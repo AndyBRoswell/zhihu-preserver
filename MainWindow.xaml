@@ -77,9 +77,13 @@
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="1*"/>
 								<ColumnDefinition Width="4*"/>
+								<ColumnDefinition Width="20"/>
 							</Grid.ColumnDefinitions>
-							<ComboBox Grid.Column="0"/>
+							<ComboBox Name="TaskType" Grid.Column="0">
+								<ComboBoxItem Content="{x:Static p:Resources.SingleQuestion}" IsSelected="True"/>
+							</ComboBox>
 							<TextBox Name="TaskURL" Grid.Column="1"/>
+							<Button Grid.Column="2" Content="➕" Click="AddTask_Click"/>
 						</Grid>
 					</Grid>
 				</GroupBox>
@@ -98,7 +102,7 @@
 			</Grid>
 		</Grid>
 		<StatusBar Grid.Row="2">
-			<StatusBarItem Content="{x:Static p:Resources.Ready}"/>
+			<StatusBarItem Name="MainStatusBar" Content="{x:Static p:Resources.Ready}"/>
 		</StatusBar>
 	</Grid>
 </Window>
