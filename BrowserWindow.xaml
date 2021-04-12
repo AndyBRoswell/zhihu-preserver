@@ -29,7 +29,7 @@
 			</MenuItem>
             <MenuItem Header="{x:Static p:Resources.Task}">
                 <MenuItem Header="{x:Static p:Resources.AddTaskSingleQuestion}" Click="Menu_Task_AddTaskSingleQuestion_Click"/>
-                <MenuItem Header="{x:Static p:Resources.ExecDirectlySingleQuestion}"/>
+                <MenuItem Header="{x:Static p:Resources.ExecDirectlySingleQuestion}" Click="Menu_Task_ExecDirectlySingleQuestion_Click"/>
             </MenuItem>
 		</Menu>
 		<Grid Grid.Row="1">

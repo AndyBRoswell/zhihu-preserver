@@ -200,9 +200,10 @@ namespace zhihu_preserver {
 
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + title);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.SavePath + SavePath);
-			string HTML = Browser.GetBrowser().MainFrame.GetSourceAsync().Result;
+			string HTML = Browser.GetMainFrame().GetSourceAsync().Result;
 			HTML = NoAutoRefreshForDownloadedWebPage(HTML);
 
+			title = DriveAccessor.NoIllegarCharOfFilename(title);
 			File.WriteAllText(SavePath + title + ".html", HTML);
 			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
 		}
@@ -225,6 +226,10 @@ namespace zhihu_preserver {
 
 		private void Menu_Task_AddTaskSingleQuestion_Click(object sender, RoutedEventArgs e) {
 			MainWindow.AddTask(0, Properties.Resources.SingleQuestion, Browser.Address, Browser.Title);
+		}
+
+		private void Menu_Task_ExecDirectlySingleQuestion_Click(object sender, RoutedEventArgs e) {
+			Crawler.CrawlQuestion(Browser);
 		}
 	}
 }
