@@ -198,14 +198,19 @@ namespace zhihu_preserver {
 			string title = null;
 			Browser.Dispatcher.Invoke(() => { title = Browser.Title; });
 
-			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + title);
-			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.SavePath + SavePath);
-			string HTML = Browser.GetMainFrame().GetSourceAsync().Result;
-			HTML = NoAutoRefreshForDownloadedWebPage(HTML);
+			Task.Run(() => {
+				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadStart + title);
+				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.SavePath + SavePath);
 
-			title = DriveAccessor.NoIllegarCharOfFilename(title);
-			File.WriteAllText(SavePath + title + ".html", HTML);
-			MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
+				Task<string> GetHTML = Browser.GetMainFrame().GetSourceAsync();
+				GetHTML.Wait();
+				string HTML = GetHTML.Result;
+				HTML = NoAutoRefreshForDownloadedWebPage(HTML);
+
+				title = DriveAccessor.NoIllegarCharOfFilename(title);
+				File.WriteAllText(SavePath + title + ".html", HTML);
+				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
+			});
 		}
 
 		private void Menu_WebPage_Settings_Click(object sender, RoutedEventArgs e) {
