@@ -97,6 +97,7 @@ namespace zhihu_preserver {
 
 		static internal void AddTask() {
 			TaskQueue.AddLast(new TaskItem(ThisWindow.TaskType.SelectedIndex, ThisWindow.TaskType.Text, ThisWindow.TaskURL.Text));
+			ThisWindow.TaskListBox.Items.Refresh();
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
