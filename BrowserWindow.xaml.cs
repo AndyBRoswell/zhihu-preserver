@@ -223,8 +223,8 @@ namespace zhihu_preserver {
 			MainWindow.NewBrowserWindowHome();
 		}
 
-        private void Menu_Task_AddTaskSingleQuestion_Click(object sender, RoutedEventArgs e) {
-			MainWindow.AddTask();
-        }
-    }
+		private void Menu_Task_AddTaskSingleQuestion_Click(object sender, RoutedEventArgs e) {
+			MainWindow.AddTask(0, Properties.Resources.SingleQuestion, Browser.Address, Browser.Title);
+		}
+	}
 }
