@@ -94,11 +94,10 @@
 								<ColumnDefinition Width="*"/>
 								<ColumnDefinition Width="20"/>
 							</Grid.ColumnDefinitions>
-							<!--<ComboBox Name="TaskType" Grid.Column="0">
+							<ComboBox Name="TaskType" Grid.Column="0">
 								<ComboBoxItem Content="{x:Static p:Resources.SingleQuestion}" IsSelected="True"/>
 							</ComboBox>
-							<TextBox Name="TaskURL" Grid.Column="1"/>-->
-							<!--A ComboBox and a TextBox descripting tasks will be added here. See MainWindow.xaml.cs-->
+							<TextBox Name="TaskURL" Grid.Column="1"/>
 							<Button Grid.Column="2" Content="➕" Click="AddTask_Click"/>
 						</Grid>
 					</Grid>

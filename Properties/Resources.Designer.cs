@@ -367,7 +367,7 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0. 单个问题.
+        ///   Looks up a localized string similar to 单个问题.
         /// </summary>
         public static string SingleQuestion {
             get {

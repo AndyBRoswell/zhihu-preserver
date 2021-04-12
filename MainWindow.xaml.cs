@@ -55,8 +55,6 @@ namespace zhihu_preserver {
 		internal static TextBlock LogBlock = new() {
 			TextWrapping = TextWrapping.Wrap
 		};
-		internal static ComboBox TaskType = new();
-		internal static TextBox TaskURL = new();
 
 		public MainWindow() {
 			InitializeComponent();
@@ -98,7 +96,7 @@ namespace zhihu_preserver {
 		}
 
 		static internal void AddTask() {
-			TaskQueue.AddLast(new TaskItem(TaskType.SelectedIndex, TaskType.Text, TaskURL.Text));
+			TaskQueue.AddLast(new TaskItem(ThisWindow.TaskType.SelectedIndex, ThisWindow.TaskType.Text, ThisWindow.TaskURL.Text));
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
@@ -145,17 +143,6 @@ namespace zhihu_preserver {
 			TaskListBox.ItemsSource = TaskQueue;
 
 			LogBlockSlot.Content = LogBlock;
-
-			TaskQueueController.Children.Add(TaskType);
-			Grid.SetColumn(TaskType, 0);
-			ComboBoxItem CBISingleQuestion = new() {
-				Content = Properties.Resources.SingleQuestion,
-				IsSelected = true
-			};
-			TaskType.Items.Add(CBISingleQuestion);
-
-			TaskQueueController.Children.Add(TaskURL);
-			Grid.SetColumn(TaskURL, 1);
 
 			WriteToLog(Properties.Resources.Information, Properties.Resources.SystemLoaded);
 		}

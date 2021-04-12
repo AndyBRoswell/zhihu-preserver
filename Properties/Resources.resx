@@ -220,7 +220,7 @@
     <value>设置项</value>
   </data>
   <data name="SingleQuestion" xml:space="preserve">
-    <value>0. 单个问题</value>
+    <value>单个问题</value>
   </data>
   <data name="StatusPanel" xml:space="preserve">
     <value>状态面板</value>
