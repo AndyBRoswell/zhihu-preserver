@@ -97,7 +97,7 @@ namespace zhihu_preserver {
 
 		static internal void AddTask() {
 			TaskQueue.AddLast(new TaskItem(ThisWindow.TaskType.SelectedIndex, ThisWindow.TaskType.Text, ThisWindow.TaskURL.Text));
-			ThisWindow.TaskListBox.Items.Refresh();
+			ThisWindow.TaskListView.Items.Refresh();
 		}
 
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
@@ -141,7 +141,7 @@ namespace zhihu_preserver {
 
 			// Controls initialization
 			OpenBrowserWindowList.ItemsSource = OpenBrowserWindowInfo.Values;
-			TaskListBox.ItemsSource = TaskQueue;
+			TaskListView.ItemsSource = TaskQueue;
 
 			LogBlockSlot.Content = LogBlock;
 

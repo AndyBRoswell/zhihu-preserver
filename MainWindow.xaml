@@ -70,7 +70,7 @@
 							<RowDefinition Height="*"/>
 							<RowDefinition Height="20"/>
 						</Grid.RowDefinitions>
-						<ListBox Name="TaskListBox" Grid.Row="0" HorizontalContentAlignment="Stretch">
+						<ListBox Name="TaskListView" Grid.Row="0" HorizontalContentAlignment="Stretch">
 							<ListBox.ItemTemplate>
 								<DataTemplate>
 									<Grid>
