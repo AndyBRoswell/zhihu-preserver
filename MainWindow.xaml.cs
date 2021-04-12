@@ -100,6 +100,11 @@ namespace zhihu_preserver {
 			ThisWindow.TaskListView.Items.Refresh();
 		}
 
+		static internal void AddTask(int TypeNo, string Type, string URL, string Title) {
+			TaskQueue.AddLast(new TaskItem(TypeNo, Type, URL, Title));
+			ThisWindow.TaskListView.Items.Refresh();
+		}
+
 		private void Menu_Program_Multiboxing_Click(object sender, RoutedEventArgs e) {
 			Process.Start(Global.Const["AppPathname"]);
 		}

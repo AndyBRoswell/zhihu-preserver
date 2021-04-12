@@ -31,6 +31,8 @@
 				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowHomePage}" Click="Menu_Edit_New_Browser_Window_Home_Click"/>
 				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowBlank}" Click="Menu_Edit_New_Browser_Window_Blank_Click"/>
 				<Separator/>
+				<MenuItem Header="{x:Static p:Resources.ImportTaskList}"/>
+				<MenuItem Header="{x:Static p:Resources.ExportTaskList}"/>
 			</MenuItem>
 			<MenuItem Header="{x:Static p:Resources.Help}">
 				<MenuItem Header="{x:Static p:Resources.Document}"/>

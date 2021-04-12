@@ -79,6 +79,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 添加到任务列表：单个问题.
+        /// </summary>
+        public static string AddTaskSingleQuestion {
+            get {
+                return ResourceManager.GetString("AddTaskSingleQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 应用.
         /// </summary>
         public static string Apply {
@@ -187,11 +196,29 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 直接执行：单个问题.
+        /// </summary>
+        public static string ExecDirectlySingleQuestion {
+            get {
+                return ResourceManager.GetString("ExecDirectlySingleQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 退出.
         /// </summary>
         public static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出任务列表.
+        /// </summary>
+        public static string ExportTaskList {
+            get {
+                return ResourceManager.GetString("ExportTaskList", resourceCulture);
             }
         }
         
@@ -219,6 +246,15 @@ namespace zhihu_preserver.Properties {
         public static string HomePage {
             get {
                 return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导入任务列表.
+        /// </summary>
+        public static string ImportTaskList {
+            get {
+                return ResourceManager.GetString("ImportTaskList", resourceCulture);
             }
         }
         

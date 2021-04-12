@@ -16,7 +16,7 @@
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
 		<Menu Grid.Row="0">
-			<MenuItem Header="{x:Static p:Resources.WebPage}">
+			<MenuItem Header="{x:Static p:Resources.Browsing}">
 				<MenuItem Header="{x:Static p:Resources.DuplicateCurrentWebPage}" Click="Menu_WebPage_Duplicate_Click"/>
 				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowBlank}" Click="Menu_WebPage_NewBlank_Click"/>
 				<MenuItem Header="{x:Static p:Resources.NewBrowserWindowHomePage}" Click="Menu_WebPage_NewHome_Click"/>
@@ -27,6 +27,10 @@
 				<Separator/>
 				<MenuItem Header="{x:Static p:Resources.CloseWindow}"/>
 			</MenuItem>
+            <MenuItem Header="{x:Static p:Resources.Task}">
+                <MenuItem Header="{x:Static p:Resources.AddTaskSingleQuestion}" Click="Menu_Task_AddTaskSingleQuestion_Click"/>
+                <MenuItem Header="{x:Static p:Resources.ExecDirectlySingleQuestion}"/>
+            </MenuItem>
 		</Menu>
 		<Grid Grid.Row="1">
 			<Grid.ColumnDefinitions>
