@@ -10,26 +10,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace zhihu_preserver {
 	static class Crawler {
-		static HtmlParser parser = new();
-
 		internal static IHtmlCollection<IElement> CrawlQuestion(TaskItem task) {
 			return null;
 		}
 
 		internal static IHtmlCollection<IElement> CrawlQuestion(ChromiumWebBrowser browser) {
-			//IHtmlDocument SingleQuestionDoc = browser.GetMainFrame().;
-			return null;
-        }
+			// Get HTML and parse.
+			Task<string> GetHTML = browser.GetMainFrame().GetSourceAsync();
+			GetHTML.Wait();
+			HtmlParser parser = new();
+			var document = parser.ParseDocument(GetHTML.Result);
 
-		internal static IHtmlCollection<IElement> CrawlAnswer(TaskItem task) {
+
+
 			return null;
 		}
 
-		internal static IHtmlCollection<IElement> CrawlAnswerComments(TaskItem task) {
+		internal static IHtmlCollection<IElement> CrawlAnswer() {
+			return null;
+		}
+
+		internal static IHtmlCollection<IElement> CrawlAnswerComments() {
 			return null;
 		}
 	}
