@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace zhihu_preserver {
 	static class DriveAccessor {
-		internal static string NoIllegarCharOfFilename(string Filename) {
+		internal static string NoIllegalCharOfFilename(string Filename) {
 			string newFileName;
 			newFileName = Filename.Replace('\\', '_')
 									.Replace('/', '_')

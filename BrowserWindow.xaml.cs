@@ -211,7 +211,7 @@ namespace zhihu_preserver {
 				string HTML = GetHTML.Result;
 				HTML = NoAutoRefreshForDownloadedWebPage(HTML);
 
-				title = DriveAccessor.NoIllegarCharOfFilename(title);
+				title = DriveAccessor.NoIllegalCharOfFilename(title);
 				File.WriteAllText(SavePath + title + ".html", HTML); // Default Encoding: UTF-8 without BOM
 				MainWindow.WriteToLog(Properties.Resources.Information, Properties.Resources.WebPageDownloadComplete);
 			});
