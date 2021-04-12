@@ -475,6 +475,15 @@ namespace zhihu_preserver.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 查看源代码.
+        /// </summary>
+        public static string ViewSource {
+            get {
+                return ResourceManager.GetString("ViewSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 网页.
         /// </summary>
         public static string WebPage {

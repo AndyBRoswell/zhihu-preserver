@@ -158,6 +158,10 @@ namespace zhihu_preserver {
 			}
 		}
 
+		private void Menu_WebPage_ViewSource_Click(object sender, RoutedEventArgs e) {
+			Browser.GetMainFrame().ViewSource();
+		}
+
 		private void Menu_WebPage_SaveWebPage_Click(object sender, RoutedEventArgs e) {
 			string SavePath = SettingsWindow.QuerySettingItem("/Settings/Browsing/HTMLSavePath");
 
